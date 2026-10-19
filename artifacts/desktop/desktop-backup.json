@@ -1,0 +1,457 @@
+{
+  "version": 1,
+  "templates": [],
+  "documents": [],
+  "assets": [
+    {
+      "id": "44da0e44-2a8a-42dd-b2d5-75bdaf5b9c66",
+      "name": "desktop-sign",
+      "category": "signature",
+      "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4nGMQkdP4zwAEAAdmAVp9gFAdAAAAAElFTkSuQmCC",
+      "width": 2,
+      "height": 1
+    }
+  ],
+  "draft": {
+    "doc": {
+      "version": 1,
+      "id": "6c39604e-fec1-46b9-9703-82d72a5f9d44",
+      "name": "견적서 기본 양식 · 문서",
+      "kind": "견적서",
+      "blocks": [
+        {
+          "id": "a0dedc44-a47c-4673-a80a-7b7362efa7f6",
+          "type": "text",
+          "row": 0,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 2,
+          "style": {
+            "font": "Pretendard",
+            "size": 29,
+            "bold": true,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "center",
+            "background": "transparent"
+          },
+          "text": "견적서",
+          "keepWithNext": true,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "freeX": 0
+        },
+        {
+          "id": "2cb14f35-3e9a-4402-a74a-1bb6d8ca4bb7",
+          "type": "text",
+          "row": 2,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 9,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#628295",
+            "align": "center",
+            "background": "transparent"
+          },
+          "text": "Q U O T A T I O N",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "freeX": 0
+        },
+        {
+          "id": "3da0ffc5-5018-4e95-bc11-26f9b7d1f0ef",
+          "type": "field",
+          "row": 3,
+          "col": 0,
+          "span": 6,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "field": {
+            "id": "cb6a28d4-f2a3-4b4b-bcf4-6ecdd425235e",
+            "name": "고객명",
+            "type": "text",
+            "defaultValue": "",
+            "required": true
+          }
+        },
+        {
+          "id": "5e3582d1-80ac-4d34-ba38-7a05b293ace7",
+          "type": "field",
+          "row": 3,
+          "col": 6,
+          "span": 6,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "field": {
+            "id": "1a36c7d1-0eeb-41d5-89dd-26a030ff97f3",
+            "name": "작성일",
+            "type": "date",
+            "defaultValue": "2026-10-19",
+            "required": false
+          },
+          "freeX": 0
+        },
+        {
+          "id": "a1330b81-7ed3-49c7-8e5e-9053c48e58b6",
+          "type": "table",
+          "row": 4,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "5fc680bb-dc71-4b40-83b8-0372d5d0d334",
+                "name": "항목",
+                "width": 42,
+                "role": "text"
+              },
+              {
+                "id": "a98e66fc-25e5-418a-8664-3ad4b611ecda",
+                "name": "수량",
+                "width": 14,
+                "role": "quantity"
+              },
+              {
+                "id": "bf727d58-8114-4157-b847-68b839a5b9fc",
+                "name": "단가",
+                "width": 22,
+                "role": "price"
+              },
+              {
+                "id": "54202599-fadc-4a8e-86af-01d1b87fecd4",
+                "name": "금액",
+                "width": 22,
+                "role": "amount"
+              }
+            ],
+            "rows": [
+              {
+                "5fc680bb-dc71-4b40-83b8-0372d5d0d334": "상품 또는 서비스",
+                "a98e66fc-25e5-418a-8664-3ad4b611ecda": "1",
+                "bf727d58-8114-4157-b847-68b839a5b9fc": "100000",
+                "54202599-fadc-4a8e-86af-01d1b87fecd4": ""
+              },
+              {
+                "5fc680bb-dc71-4b40-83b8-0372d5d0d334": "추가 작업",
+                "a98e66fc-25e5-418a-8664-3ad4b611ecda": "1",
+                "bf727d58-8114-4157-b847-68b839a5b9fc": "200000",
+                "54202599-fadc-4a8e-86af-01d1b87fecd4": ""
+              },
+              {
+                "5fc680bb-dc71-4b40-83b8-0372d5d0d334": "운송 및 처리",
+                "a98e66fc-25e5-418a-8664-3ad4b611ecda": "1",
+                "bf727d58-8114-4157-b847-68b839a5b9fc": "300000",
+                "54202599-fadc-4a8e-86af-01d1b87fecd4": ""
+              }
+            ],
+            "total": true,
+            "repeatable": true
+          },
+          "freeX": 0
+        },
+        {
+          "id": "6445b4bb-16ac-4e40-8d76-331c276886e4",
+          "type": "text",
+          "row": 9,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": true,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "거래 조건",
+          "keepWithNext": true,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "freeX": 0
+        },
+        {
+          "id": "34f8fdd6-8664-45ab-9b77-1948c6cc3c3b",
+          "type": "text",
+          "row": 10,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#52687c",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "이곳에 문서에 필요한 조건과 안내 사항을 작성하세요.\n양식을 저장한 뒤 문서 작성에서 입력 항목을 채울 수 있습니다.",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "freeX": 0
+        },
+        {
+          "id": "db059b88-35ab-4c20-a85c-b579b3c76359",
+          "type": "signature",
+          "row": 12,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "확인 및 서명",
+          "keepWithNext": false,
+          "height": 40,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "images": [
+            {
+              "id": "24e38bf4-d7eb-448e-8544-57386e82aa76",
+              "asset": {
+                "id": "44da0e44-2a8a-42dd-b2d5-75bdaf5b9c66",
+                "name": "desktop-sign",
+                "category": "signature",
+                "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4nGMQkdP4zwAEAAdmAVp9gFAdAAAAAElFTkSuQmCC",
+                "width": 2,
+                "height": 1
+              },
+              "x": 6,
+              "y": 15,
+              "width": 20.604395604395602,
+              "locked": false
+            }
+          ],
+          "freeX": 0,
+          "signatureTitlePosition": "below",
+          "signatureHeight": 25,
+          "signatureLine": {
+            "style": "solid",
+            "width": 0.75,
+            "color": "#26a8ae"
+          }
+        }
+      ],
+      "values": {
+        "cb6a28d4-f2a3-4b4b-bcf4-6ecdd425235e": "EXE 검증 고객"
+      },
+      "updatedAt": "2026-10-19T06:47:06.439Z",
+      "page": {
+        "columns": 12,
+        "margins": {
+          "top": 12,
+          "right": 14,
+          "bottom": 12,
+          "left": 14
+        },
+        "header": {
+          "height": 16,
+          "first": "same",
+          "items": [
+            {
+              "id": "f1fe769a-4644-42df-a012-94aaece73695",
+              "type": "text",
+              "text": "문서 스튜디오  /  업무 문서",
+              "x": 0,
+              "y": 3,
+              "width": 110,
+              "height": 8,
+              "color": "#46627b",
+              "size": 9
+            }
+          ],
+          "firstItems": []
+        },
+        "footer": {
+          "height": 12,
+          "first": "same",
+          "items": [
+            {
+              "id": "e1b2ea02-5334-4beb-bf2e-a093eaea7645",
+              "type": "text",
+              "text": "문서 스튜디오",
+              "x": 0,
+              "y": 3,
+              "width": 100,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            },
+            {
+              "id": "104c1956-5562-48fa-b9db-6d548ce8e596",
+              "type": "text",
+              "text": "{page} / {pages}",
+              "x": 145,
+              "y": 3,
+              "width": 32,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            }
+          ],
+          "firstItems": []
+        },
+        "watermark": {
+          "enabled": false,
+          "transparency": 85,
+          "width": 135,
+          "x": 50,
+          "y": 50,
+          "scope": "all",
+          "pages": ""
+        },
+        "widgetGrid": true,
+        "gridRowMm": 12
+      },
+      "bodyFlow": {
+        "version": 1,
+        "bands": [
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "a0dedc44-a47c-4673-a80a-7b7362efa7f6",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "2cb14f35-3e9a-4402-a74a-1bb6d8ca4bb7",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "3da0ffc5-5018-4e95-bc11-26f9b7d1f0ef",
+                "offset": 0
+              },
+              {
+                "id": "5e3582d1-80ac-4d34-ba38-7a05b293ace7",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "a1330b81-7ed3-49c7-8e5e-9053c48e58b6",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "6445b4bb-16ac-4e40-8d76-331c276886e4",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "34f8fdd6-8664-45ab-9b77-1948c6cc3c3b",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "db059b88-35ab-4c20-a85c-b579b3c76359",
+                "offset": 0
+              }
+            ]
+          }
+        ]
+      },
+      "sourceTemplateId": "4993b7d3-56d2-4976-bb95-90a70065332b"
+    },
+    "mode": "document"
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-19",
+  "version": "1.0.0",
+  "file": "DocumentStudio-1.0.0-win-x64.exe",
+  "bytes": 99954045,
+  "sha256": "c1401d89203c1ee77a10829bccc5d05d24dafacc592038a4211e87a860e20611",
+  "target": "Windows 10/11 x64",
+  "launcherPE": "x86 NSIS self-extractor",
+  "applicationPE": "x86-64 Electron 44.9.0",
+  "codeSigned": false,
+  "windowsExecutionVerified": false,
+  "validation": "Linux Electron, including actual Windows-packaged app.asar; exact packaged renderer and desktop sources verified",
+  "nativeStorageTests": {
+    "passed": 3,
+    "failed": 0
+  },
+  "editorRegression": {
+    "initialPassed": 76,
+    "initialFailed": 1,
+    "hotkeySelectionFixRerunPassed": 2,
+    "uniquePassingChecks": 77
+  },
+  "desktopScenarios": 8,
+  "formats": [
+    "json",
+    "pdf",
+    "docx",
+    "xlsx",
+    "png",
+    "jpg"
+  ],
+  "limits": [
+    "Word/Excel are editable layout conversions; exact shapes/watermark/background/positions not retained",
+    "DOCX/XLSX cannot be imported back into the editor; JSON is the original backup",
+    "Windows GUI, printer dialogs and real Microsoft Office opening unverified",
+    "Unsigned first executable; Windows may show publisher/security notification"
+  ]
+}

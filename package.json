@@ -1,0 +1,92 @@
+{
+  "name": "document-studio",
+  "version": "1.0.0",
+  "description": "문서 스튜디오 — 업무 문서 템플릿 편집기",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "tsc --noEmit && vite build && node scripts/build-preview.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "playwright test",
+    "test:offline": "node tests/offline.mjs",
+    "test:preview": "node tests/preview.mjs",
+    "test:enhanced-preview": "node tests/enhanced-preview.mjs",
+    "test:flow-preview": "node tests/flow-preview.mjs",
+    "test:field-preview": "node tests/field-modes-preview.mjs",
+    "test:names-preview": "node tests/names-directions-preview.mjs",
+    "test:signature-preview": "node tests/signature-preview.mjs",
+    "desktop": "npm run build && electron .",
+    "desktop:win": "npm run build && electron-builder --win portable --x64 --publish never",
+    "desktop:linux": "npm run build && electron-builder --linux dir --x64 --publish never",
+    "test:desktop": "node tests/desktop.mjs",
+    "test:desktop-storage": "node --test tests/desktop-storage.cjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Alex-Choi/document-studio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/Alex-Choi/document-studio/issues"
+  },
+  "homepage": "https://github.com/Alex-Choi/document-studio#readme",
+  "private": true,
+  "dependencies": {},
+  "devDependencies": {
+    "@playwright/test": "^1.64.0",
+    "@types/node": "^26.6.5",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "electron": "44.9.0",
+    "electron-builder": "26.15.3",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.4",
+    "docx": "9.12.0",
+    "exceljs": "4.4.0",
+    "html-to-image": "1.11.13",
+    "lucide-react": "^1.55.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "main": "desktop/main.cjs",
+  "productName": "문서 스튜디오",
+  "build": {
+    "appId": "io.documentstudio.desktop",
+    "productName": "DocumentStudio",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "desktop/**/*",
+      "package.json"
+    ],
+    "asar": true,
+    "npmRebuild": false,
+    "compression": "normal",
+    "win": {
+      "target": [
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": false,
+      "artifactName": "DocumentStudio-${version}-win-${arch}.${ext}"
+    },
+    "portable": {
+      "requestExecutionLevel": "user"
+    },
+    "linux": {
+      "target": "dir",
+      "category": "Office"
+    }
+  }
+}

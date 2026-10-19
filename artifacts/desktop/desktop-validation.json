@@ -1,0 +1,38 @@
+{
+  "platform": "linux",
+  "windowsExecutionVerified": false,
+  "checks": [
+    "Electron launches offline with isolated preload and native file storage, no renderer Node access",
+    "Native file autosave survives app exit/relaunch, preserving actual fields, images, signature layout and assets",
+    "Native JSON export/import uses real files and preserves image-inclusive backup data",
+    "DOCX/XLSX open as valid Office packages with values, calculated totals and embedded images; PNG/JPG decode as separate A4 images",
+    "Native PDF saving creates a searchable PDF from the same document layout",
+    "Closing before the autosave timer fires flushes the latest edit to disk",
+    "Multi-page table exports to one Excel sheet per page with cross-sheet totals, and one PNG per A4 page",
+    "Cancelling an OS save dialog preserves the document and keeps the editor usable"
+  ],
+  "errors": [],
+  "requests": [],
+  "files": {
+    "docx": {
+      "bytes": 13533
+    },
+    "xlsx": {
+      "bytes": 12968
+    },
+    "png": {
+      "bytes": 171390,
+      "size": {
+        "width": 1587,
+        "height": 2245
+      }
+    },
+    "jpg": {
+      "bytes": 159471,
+      "size": {
+        "width": 1587,
+        "height": 2245
+      }
+    }
+  }
+}
