@@ -1,0 +1,19 @@
+{
+  "directFile": false,
+  "directFileError": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/document-studio/artifacts/document-studio-preview.html",
+  "checks": [
+    "Exact standalone HTML: 14pt text in a 29pt base title resizes from 3 rows to 2; preview clamps at the content minimum",
+    "Height reduction and surrounding flow undo/redo as one action",
+    "Selecting actual text and shrinking to 6pt frees enough space to fit one 12mm row",
+    "Export/import retains partial formatting without treating calculated paragraph height as font data",
+    "Preview and searchable PDF preserve the compact text layout and remove editing grid",
+    "No network requests or runtime errors; HTML file remains unchanged"
+  ],
+  "requests": [],
+  "errors": [],
+  "geometry": {
+    "before": 84.7045443855809,
+    "after": 54.469672810214504
+  },
+  "pdfPages": 1
+}

@@ -210,6 +210,11 @@ export default function App() {
         if(edge.includes('w')){candidate.col=clamp(original.col+dx,0,original.col+original.span-1);candidate.span=original.col+original.span-candidate.col;}
         if(edge.includes('s'))candidate.rowSpan=clamp(original.rowSpan+dy,1,64);
         if(edge.includes('n')){candidate.row=clamp(original.row+dy,0,original.row+original.rowSpan-1);candidate.rowSpan=original.row+original.rowSpan-candidate.row;}
+        if(widget&&/[ns]/.test(edge)&&candidate.span===original.span&&contentHeightBlock(b)&&metrics[b.id]){
+          const minimum=clamp(Math.ceil((metrics[b.id].height+(b.freeY??0)*pitchY+GRID_GAP-.1)/pitchY),1,64);
+          candidate.rowSpan=Math.max(minimum,candidate.rowSpan);
+          if(edge.includes('n'))candidate.row=Math.max(0,original.row+original.rowSpan-candidate.rowSpan);
+        }
         const top=(blockBox.top-bodyBox.top)/scale+(edge.includes('n')?(candidate.row-original.row)*pitchY:0);
         setDragPreview({page:Number(body.closest('[data-page]')?.getAttribute('data-page')),top,col:candidate.col,span:candidate.span,rows:candidate.rowSpan,label:`${candidate.span}열 × ${candidate.rowSpan}행`});return;
       }

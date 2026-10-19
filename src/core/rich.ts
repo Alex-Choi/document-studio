@@ -32,7 +32,7 @@ export function readRuns(root:HTMLElement):RichRun[]{
     const s={...inherited};const css=node.style;
     if(css.fontFamily){const name=css.fontFamily.replace(/^['"]|['"]$/g,'').split(',')[0].replace(/^['"]|['"]$/g,'');s.font=['Pretendard','Serif','Mono'].includes(name)?`"${name}"`:name;}
     if(node.tagName==='FONT'&&node.getAttribute('face')){const name=node.getAttribute('face')!;s.font=['Pretendard','Serif','Mono'].includes(name)?`"${name}"`:name;}
-    if(css.fontSize){const n=parseFloat(css.fontSize);if(Number.isFinite(n))s.size=Math.min(72,Math.max(6,css.fontSize.endsWith('pt')?n:n*.75));}
+    if(css.fontSize&&node.dataset.richSize===undefined){const n=parseFloat(css.fontSize);if(Number.isFinite(n))s.size=Math.min(72,Math.max(6,css.fontSize.endsWith('pt')?n:n*.75));}
     if(css.fontWeight)s.bold=css.fontWeight==='bold'||Number(css.fontWeight)>=600;
     if(['B','STRONG'].includes(node.tagName))s.bold=true;
     if(css.fontStyle)s.italic=css.fontStyle==='italic';if(['I','EM'].includes(node.tagName))s.italic=true;
@@ -58,4 +58,23 @@ export function displayRuns(runs:RichRun[]|undefined,value:string):RichRun[]|und
  const source=runs.flatMap(run=>[...run.text].map(char=>({char,style:run.style})));let index=0;const out:RichRun[]=[];
  for(const char of value){const item=source[Math.min(index,source.length-1)];out.push({text:char,...(item?.style?{style:item.style}:{})});if(char!==','||source[index]?.char===',')index++;}
  return mergeRuns(out);
+}
+
+/** A paragraph's inherited large-font strut must not outlive its smaller text.
+ * Only derive a font size when every run has its own size; otherwise the block
+ * default still belongs to the unformatted text. Larger runs size their own lines.
+ * Change styles in place to preserve the user's selection and IME composition.
+ */
+export function syncRichSizing(root:HTMLElement, originalSize:string='') {
+ root.style.fontSize=originalSize;
+ const paragraphs=[...root.querySelectorAll<HTMLElement>('div,p')].filter(p=>!p.querySelector('div,p'));
+ for(const p of paragraphs.length?paragraphs:[root]){
+  const runs=readRuns(p).filter(r=>r.text.length);
+  if(runs.length&&runs.every(r=>r.style?.size!==undefined)){
+   p.style.fontSize=`${Math.min(...runs.map(r=>r.style!.size!))}pt`;
+   p.dataset.richSize='';
+  }else if(p.dataset.richSize!==undefined){
+   p.style.fontSize=p===root?originalSize:'';delete p.dataset.richSize;
+  }
+ }
 }
