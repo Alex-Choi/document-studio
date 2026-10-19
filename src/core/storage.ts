@@ -41,6 +41,7 @@ export function validateDoc(d: StudioDoc): boolean {
     if(b.table?.richCells&&(!Object.values(b.table.richCells).every(validRuns)))return false;
     ids.add(b.id);
     if(b.rowSpan!==undefined && (!finite(b.rowSpan,1,64) || !Number.isInteger(b.rowSpan))) return false;
+    if(b.heightMode!==undefined && !['auto','minimum'].includes(b.heightMode)) return false;
     if (b.type === 'field' || b.type === 'checkbox') { const f = b.field; if (!f || !str(f.id) || fields.has(f.id) || !str(f.name) || !str(f.defaultValue) || !['text','number','date','checkbox'].includes(f.type) || typeof f.required !== 'boolean' || (f.labelWidth!==undefined&&!finite(f.labelWidth,0,80))) return false; fields.add(f.id); }
     if (b.type === 'table') { const t = b.table; if (!t || !Array.isArray(t.columns) || !t.columns.length || t.columns.length > 16 || !Array.isArray(t.rows) || !t.rows.length || t.rows.length > 5000 || !t.columns.every(c => str(c.id) && str(c.name) && finite(c.width, 0.01, 100) && ['text','quantity','price','amount'].includes(c.role)) || new Set(t.columns.map(c => c.id)).size !== t.columns.length || !t.rows.every(r => r && typeof r === 'object' && !Array.isArray(r) && Object.values(r).every(str))) return false; }
     if (b.asset && !validateAsset(b.asset)) return false;

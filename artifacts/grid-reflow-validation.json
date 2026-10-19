@@ -1,0 +1,20 @@
+{
+  "directFile": false,
+  "directFileError": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/document-studio/artifacts/document-studio-preview.html",
+  "requests": [],
+  "errors": [],
+  "checks": [
+    "Font shrink reduces allocated rows in the delivered standalone HTML",
+    "Single undo/redo restores content sizing and surrounding placement",
+    "Reducing paragraph line spacing also reduces occupied grid rows",
+    "Changing the grid row height resizes the actual shape widget",
+    "JSON export/import preserves height mode, text, flow and grid settings without local storage",
+    "Preview hides grid; PDF page count matches and document text is selectable",
+    "No network requests or runtime errors; editing does not overwrite the HTML file"
+  ],
+  "geometry": {
+    "before": 447.53881361847937,
+    "after": 84.7045443855809
+  },
+  "pdfPages": 1
+}

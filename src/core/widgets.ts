@@ -5,6 +5,16 @@ import type { Fragment, LayoutPage, Metrics } from './layout';
 export const GRID_GAP = 6;
 export const gridPitch = (doc: StudioDoc) => (doc.page.gridRowMm ?? 12) * MM;
 export const widgetHeight = (doc: StudioDoc, rows: number) => rows * gridPitch(doc) - GRID_GAP;
+/** Content height is measured without the previously allocated grid rectangle. */
+export const contentHeightBlock = (b: Block) => ['text','emoji','table','field','checkbox'].includes(b.type) || (b.type==='divider' && b.direction!=='vertical');
+export const autoHeight = (b: Block) => contentHeightBlock(b) && (b.heightMode==='auto' || (b.heightMode===undefined && (b.rowSpan??1)===1));
+/** Old multi-row content keeps its placement until edited; explicit manual sizing is retained. */
+export function followContentHeight(block: Block, patch: Partial<Block>): Partial<Block> {
+  if (!contentHeightBlock(block)) return patch;
+  if (patch.rowSpan!==undefined) return {...patch,heightMode:patch.heightMode??'minimum'};
+  const changed = ['text','rich','field','table'].some(key=>key in patch) || !!patch.style && (['font','size','lineHeight','bold','italic'] as const).some(key=>key in patch.style! && patch.style![key]!==block.style[key]);
+  return changed && block.heightMode===undefined ? {...patch,heightMode:'auto'} : patch;
+}
 export function signatureStageHeight(doc: StudioDoc, block: Block, height?: number) {
   if (block.signatureHeight !== undefined) return block.signatureHeight * MM;
   if (!doc.page.widgetGrid) return block.height * MM;
@@ -21,7 +31,8 @@ export function resolveLegacyWidgets(doc: StudioDoc, metrics: Record<string, Met
   for (const b of ordered) {
     const span = b.type === 'break' ? columns : Math.min(columns, Math.max(1,Math.round(b.span)));
     const col = b.type === 'break' ? 0 : Math.max(0,Math.min(columns-span,Math.round(b.col)));
-    const rows = b.type === 'break' ? 1 : Math.max(b.rowSpan ?? 1, Math.ceil(((metrics[b.id]?.height ?? widgetHeight(doc,b.rowSpan ?? 1))+(b.freeY??0)*pitch+GRID_GAP-.1)/pitch));
+    const minimum = autoHeight(b) ? 1 : b.rowSpan ?? 1;
+    const rows = b.type === 'break' ? 1 : Math.max(minimum, Math.ceil(((metrics[b.id]?.height ?? widgetHeight(doc,minimum))+(b.freeY??0)*pitch+GRID_GAP-.1)/pitch));
     const rect: WidgetRect = {block:{...b,col,span,freeX:col+span>=columns?0:b.freeX},row:Math.max(0,Math.round(b.row)),col,span:Math.min(columns-col,span+(b.freeX?1:0)),rows,height:widgetHeight(doc,rows)};
     let collision: WidgetRect | undefined;
     while ((collision=placed.find(p=>overlaps(rect,p)))) rect.row=collision.row+collision.rows;

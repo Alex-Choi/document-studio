@@ -1,0 +1,30 @@
+import {chromium,expect} from '@playwright/test';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {resolve} from 'node:path';
+import {pathToFileURL} from 'node:url';
+import assert from 'node:assert/strict';
+import {execFileSync} from 'node:child_process';
+import {newDoc,makeBlock} from '../src/core/model.ts';
+
+const file=resolve('artifacts/document-studio-preview.html'),html=await readFile(file,'utf8');
+const report={directFile:false,directFileError:null,requests:[],errors:[],checks:[],geometry:{}};
+const browser=await chromium.launch({executablePath:process.env.PLAYWRIGHT_CHROMIUM_EXECUTABLE||undefined});
+try{
+ const context=await browser.newContext({offline:true,viewport:{width:1560,height:1100},acceptDownloads:true});let page=await context.newPage();
+ try{await page.goto(pathToFileURL(file).href);report.directFile=true;}catch(e){report.directFileError=e.message.split('\n')[0];if(!/ERR_BLOCKED_BY_ADMINISTRATOR/.test(report.directFileError))throw e;}
+ const open=async()=>{await page.close();page=await context.newPage();page.on('pageerror',e=>report.errors.push(e.message));page.on('request',r=>report.requests.push(r.url()));if(report.directFile)await page.goto(pathToFileURL(file).href);else await page.setContent(html,{waitUntil:'load'});await expect(page.locator('.brand')).toBeVisible();};await open();
+ const backup=async()=>{const downloaded=page.waitForEvent('download');await page.getByRole('button',{name:'문서 내보내기',exact:true}).click();return JSON.parse(await readFile(await(await downloaded).path(),'utf8'));};
+ const d=newDoc('견적서',true),a=makeBlock('text',0),peer=makeBlock('shape',0),table=makeBlock('table',8),end=makeBlock('text',9);d.name='웹 격자 높이 확인';a.span=peer.span=6;a.rowSpan=8;a.style.size=36;a.text='높이 자동 재계산\n글자가 작아지면\n아래 내용도 올라옵니다';peer.col=6;peer.rowSpan=2;end.text='아래 내용 · 자동 배치';d.blocks=[a,peer,table,end];
+ await page.getByTestId('backup-import').setInputFiles({name:'layout.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({version:1,templates:[],documents:[],assets:[],draft:{doc:d,mode:'template'}}))});await expect(page.getByLabel('문서 이름')).toHaveValue(d.name);
+ const block=id=>page.locator(`.paper [data-block-id="${id}"]`).first();const height=id=>block(id).evaluate(el=>el.getBoundingClientRect().height/(el.closest('.paper').getBoundingClientRect().width/(210*96/25.4)));
+ await block(a.id).dispatchEvent('click');const before=await height(a.id);await mkdir('docs/screenshots',{recursive:true});await page.screenshot({path:'docs/screenshots/grid-reflow-before.png'});
+ await page.getByLabel('글자 크기',{exact:true}).selectOption('8');await expect.poll(()=>height(a.id)).toBeLessThan(before/2);await expect(page.getByLabel('블록 높이 방식')).toHaveValue('auto');report.geometry.before=before;report.geometry.after=await height(a.id);report.checks.push('Font shrink reduces allocated rows in the delivered standalone HTML');
+ const snapshot=await backup();assert.equal(snapshot.draft.doc.blocks.find(b=>b.id===a.id).heightMode,'auto');await page.getByRole('button',{name:'실행 취소',exact:true}).click();await expect.poll(()=>height(a.id)).toBeCloseTo(before,1);await page.getByRole('button',{name:'다시 실행',exact:true}).click();await expect.poll(()=>height(a.id)).toBeCloseTo(report.geometry.after,1);report.checks.push('Single undo/redo restores content sizing and surrounding placement');
+ await page.getByLabel('글자 크기',{exact:true}).selectOption('48');await expect.poll(()=>height(a.id)).toBeGreaterThan(report.geometry.after);await page.getByLabel('줄 간격',{exact:true}).selectOption('1.65');const tall=await height(a.id);await page.getByLabel('줄 간격',{exact:true}).selectOption('1');await expect.poll(()=>height(a.id)).toBeLessThan(tall);report.checks.push('Reducing paragraph line spacing also reduces occupied grid rows');await page.getByLabel('글자 크기',{exact:true}).selectOption('8');await page.getByLabel('줄 간격',{exact:true}).selectOption('1.65');await expect.poll(()=>height(a.id)).toBeCloseTo(report.geometry.after,1);
+ await page.getByRole('button',{name:'격자 진하기 설정'}).click();await page.getByLabel('격자 한 행 높이').fill('8');await expect.poll(()=>height(peer.id)).toBeCloseTo(2*8*96/25.4-6,1);await page.getByRole('button',{name:'격자 진하기 설정'}).click();report.checks.push('Changing the grid row height resizes the actual shape widget');
+ await page.screenshot({path:'docs/screenshots/grid-reflow-after.png'});
+ const exported=await backup();await writeFile('artifacts/grid-reflow-example.json',JSON.stringify(exported,null,2));await open();await page.getByTestId('backup-import').setInputFiles({name:'roundtrip.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(exported))});await expect(page.getByLabel('문서 이름')).toHaveValue(d.name);assert.deepEqual((await backup()).draft.doc.blocks,exported.draft.doc.blocks);await expect.poll(()=>height(peer.id)).toBeCloseTo(2*8*96/25.4-6,1);report.checks.push('JSON export/import preserves height mode, text, flow and grid settings without local storage');
+ await page.getByRole('button',{name:'미리보기',exact:true}).click();await expect(page.locator('.paper .grid-row-ruler')).toHaveCount(0);const pages=await page.locator('.paper').count();await page.emulateMedia({media:'print'});await page.pdf({path:'artifacts/document-studio-grid-check.pdf',preferCSSPageSize:true,printBackground:true});const info=execFileSync('pdfinfo',['artifacts/document-studio-grid-check.pdf'],{encoding:'utf8'});assert.equal(Number(info.match(/Pages:\s+(\d+)/)[1]),pages);const text=execFileSync('pdftotext',['artifacts/document-studio-grid-check.pdf','-'],{encoding:'utf8'});assert(text.includes('아래 내용'));report.pdfPages=pages;report.checks.push('Preview hides grid; PDF page count matches and document text is selectable');
+ assert.equal(report.requests.length,0);assert.equal(report.errors.length,0);assert.equal(await readFile(file,'utf8'),html);report.checks.push('No network requests or runtime errors; editing does not overwrite the HTML file');
+}finally{await browser.close();await writeFile('artifacts/grid-reflow-validation.json',JSON.stringify(report,null,2));}
+console.log(JSON.stringify(report,null,2));
