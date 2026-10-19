@@ -1,3 +1,4 @@
+import {selectedGeometry,saveMenuAction,resizeSelected,moveSelected} from './editor-actions';
 import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 import { clone, makeBlock, newDoc, uid } from '../src/core/model';
@@ -8,7 +9,7 @@ async function openImagePicker(page:Page){const chooser=page.waitForEvent('filec
 async function boot(page: Page) { await page.goto('/'); await expect(page.locator('.save-status')).toContainText('자동 저장됨'); }
 async function library(page: Page): Promise<Library> { await expect(page.locator('.save-status')).toContainText('자동 저장됨'); return page.evaluate(() => JSON.parse(localStorage.getItem('document-studio.v1')!)); }
 async function seed(page: Page, doc: StudioDoc, mode: 'template' | 'document' = 'template', assets: Asset[] = []) { const lib: Library = { version: 1, templates: [], documents: [], assets, draft: { doc, mode } }; await page.getByTestId('backup-import').setInputFiles({name:'fixture.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(lib))}); await expect(page.getByLabel('문서 이름')).toHaveValue(doc.name); await expect(page.locator('.save-status')).toContainText('자동 저장됨'); }
-async function saveRecord(page:Page){await page.getByRole('button',{name:'저장',exact:true}).click();if(await page.getByRole('dialog',{name:'이름 입력'}).isVisible())await page.getByRole('dialog',{name:'이름 입력'}).getByRole('button',{name:'확인',exact:true}).click();}
+async function saveRecord(page:Page){await saveMenuAction(page);if(await page.getByRole('dialog',{name:'이름 입력'}).isVisible())await page.getByRole('dialog',{name:'이름 입력'}).getByRole('button',{name:'확인',exact:true}).click();}
 function tableDoc(count: number) { const d = newDoc(); const b = d.blocks.find(b => b.table)!; const cs = b.table!.columns; b.table!.rows = Array.from({ length: count }, (_,i) => ({ [cs[0].id]: `운송 항목 ${i + 1}`, [cs[1].id]: '2', [cs[2].id]: '1000', [cs[3].id]: '' })); return d; }
 function signatureAsset(): Asset { return { id: uid(), name: '투명 서명', category: 'signature', data: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4nGMQkdP4zwAEAAdmAVp9gFAdAAAAAElFTkSuQmCC', width: 2, height: 1 }; }
 
@@ -17,8 +18,8 @@ test('빈 양식: 나란히 배치, 편집, 복제·삭제, 실행 취소', asyn
   await page.getByRole('button',{name:'빈 양식 만들기'}).click();
   await page.getByRole('button',{name:'텍스트',exact:true}).click();
   const first = page.locator('.paper .block-text').first(); await first.locator('.text-content').fill('배송 안내'); await page.getByLabel('문서 이름').click();
-  await page.getByRole('spinbutton',{name:'너비',exact:true}).fill('6'); await page.getByRole('button',{name:'텍스트',exact:true}).click();
-  await page.getByRole('spinbutton',{name:'너비',exact:true}).fill('6'); await page.getByRole('spinbutton',{name:'시작 열',exact:true}).fill('7'); await page.getByRole('spinbutton',{name:'배치 줄',exact:true}).fill('1');
+  await resizeSelected(page,{span:6}); await page.getByRole('button',{name:'텍스트',exact:true}).click();
+  await resizeSelected(page,{span:6}); await moveSelected(page,{col:6}); await moveSelected(page,{row:0});
   await expect(page.locator('.paper .layout-row')).toHaveCount(1); const boxes = await page.locator('.paper .block-text').evaluateAll(e=>e.map(x=>x.getBoundingClientRect().toJSON())); expect(boxes[0].right).toBeLessThan(boxes[1].left);
   await page.getByRole('button',{name:'블록 복제',exact:true}).click(); await expect(page.locator('.paper .block-text')).toHaveCount(3);
   await page.getByRole('button',{name:'블록 삭제',exact:true}).click(); await expect(page.locator('.paper .block-text')).toHaveCount(2);
@@ -78,19 +79,19 @@ test('양식 저장·다시 열기·복제, 문서 복사본은 양식 수정에
 test('수량×단가·합계와 반복 행, 문서 작성에서 구조 편집 제한',async({page})=>{
   await boot(page); await page.getByRole('button',{name:'문서 작성',exact:true}).click(); const table=page.locator('.paper table'); await table.locator('tbody tr').first().locator('td').nth(1).fill('3'); await table.locator('tbody tr').first().locator('td').nth(2).fill('2,000'); await page.getByLabel('문서 이름').click();
   await expect(table.locator('tbody tr').first().locator('td').nth(3)).toHaveText('6,000'); await expect(table.locator('tfoot')).toContainText('506,000'); await page.locator('.paper .block-table').click(); await page.getByRole('button',{name:'행 추가',exact:true}).click(); await expect(table.locator('tbody tr')).toHaveCount(4);
-  await expect(page.getByRole('button',{name:'텍스트',exact:true})).toBeDisabled(); await expect(page.getByRole('button',{name:'열 추가',exact:true})).toBeDisabled(); await expect(page.getByRole('spinbutton',{name:'너비',exact:true})).toBeDisabled();
+  await expect(page.getByRole('button',{name:'텍스트',exact:true})).toBeDisabled(); await expect(page.getByRole('button',{name:'열 추가',exact:true})).toBeDisabled(); await expect(page.getByRole('button',{name:'블록 이동',exact:true})).toHaveCount(0);
 });
 
 test('이미지 포함 JSON 내보내기·가져오기, 잘못된 백업 거부', async ({page})=>{
   await boot(page); const d=newDoc(); const b=makeBlock('image',7); b.asset=signatureAsset(); d.blocks.push(b); await seed(page,d,'template',[b.asset]); const before=(await library(page));
-  const download=page.waitForEvent('download'); await page.getByRole('button',{name:'전체 자료 내보내기'}).click(); const file=await download; const path=await file.path(); await page.getByRole('button',{name:'빈 양식 만들기'}).click(); await page.getByTestId('backup-import').setInputFiles(path!); await expect(page.locator('.paper .document-image')).toHaveCount(1); const restored=await library(page); expect(restored.draft.doc.blocks).toEqual(before.draft.doc.blocks); expect(restored.assets).toEqual(before.assets);
+  const download=page.waitForEvent('download'); await saveMenuAction(page,'all');if(await page.getByRole('dialog',{name:'이름 입력'}).isVisible())await page.getByRole('dialog',{name:'이름 입력'}).getByRole('button',{name:'확인',exact:true}).click(); const file=await download; const path=await file.path(); await page.getByRole('button',{name:'빈 양식 만들기'}).click(); await page.getByTestId('backup-import').setInputFiles(path!); await expect(page.locator('.paper .document-image')).toHaveCount(1); const restored=await library(page); expect(restored.draft.doc.blocks).toEqual(before.draft.doc.blocks); expect(restored.assets).toEqual(before.assets);
   await page.getByTestId('backup-import').setInputFiles({name:'bad.json',mimeType:'application/json',buffer:Buffer.from('{"version":99}')}); await expect(page.getByRole('alert')).toContainText('버전'); expect((await library(page)).draft.doc.blocks).toEqual(before.draft.doc.blocks);
 });
 
 test('확대·축소 후 손잡이 이동·너비 조절, 내용 클릭은 이동하지 않는다',async({page})=>{
-  await boot(page); await page.getByRole('button',{name:'빈 양식 만들기'}).click(); await page.getByRole('button',{name:'텍스트',exact:true}).click(); await page.getByRole('spinbutton',{name:'너비',exact:true}).fill('4'); await page.getByRole('button',{name:'확대',exact:true}).click();
-  const resize=await page.getByRole('button',{name:'블록 크기 조절',exact:true}).boundingBox(); const body=await page.locator('.page-body').boundingBox(); await page.mouse.move(resize!.x+5,resize!.y+5); await page.mouse.down(); await page.mouse.move(resize!.x+5+body!.width/12*2,resize!.y+5,{steps:5}); await page.mouse.up(); await expect(page.getByRole('spinbutton',{name:'너비',exact:true})).toHaveValue('6');
-  await page.getByRole('button',{name:'축소',exact:true}).click(); const handle=await page.getByRole('button',{name:'블록 이동',exact:true}).boundingBox(); const body2=await page.locator('.page-body').boundingBox(); await page.mouse.move(handle!.x+8,handle!.y+10); await page.mouse.down(); await page.mouse.move(body2!.x+body2!.width*.54,body2!.y+10,{steps:6}); await page.mouse.up(); await expect(page.getByRole('spinbutton',{name:'시작 열',exact:true})).toHaveValue('7');
+  await boot(page); await page.getByRole('button',{name:'빈 양식 만들기'}).click(); await page.getByRole('button',{name:'텍스트',exact:true}).click(); await resizeSelected(page,{span:4}); await page.getByRole('button',{name:'확대',exact:true}).click();
+  const resize=await page.getByRole('button',{name:'블록 크기 조절',exact:true}).boundingBox(); const body=await page.locator('.page-body').boundingBox(); await page.mouse.move(resize!.x+5,resize!.y+5); await page.mouse.down(); await page.mouse.move(resize!.x+5+body!.width/12*2,resize!.y+5,{steps:5}); await page.mouse.up(); expect((await selectedGeometry(page)).span).toBe(6);
+  await page.getByRole('button',{name:'축소',exact:true}).click(); const handle=await page.getByRole('button',{name:'블록 이동',exact:true}).boundingBox(); const body2=await page.locator('.page-body').boundingBox(); await page.mouse.move(handle!.x+8,handle!.y+10); await page.mouse.down(); await page.mouse.move(body2!.x+body2!.width*.54,body2!.y+10,{steps:6}); await page.mouse.up(); expect((await selectedGeometry(page)).col).toBe(6);
   const before=(await library(page)).draft.doc.blocks[0]; await page.locator('.paper .text-content').click(); const after=(await library(page)).draft.doc.blocks[0]; expect(after.col).toBe(before.col); expect(after.row).toBe(before.row);
 });
 

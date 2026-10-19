@@ -25,6 +25,7 @@ export function validateDoc(d: StudioDoc): boolean {
   if (!w || typeof w.enabled !== 'boolean' || !finite(w.transparency, 0, 100) || !finite(w.width, 10, 250) || !finite(w.x, 0, 100) || !finite(w.y, 0, 100) || !['all', 'pages'].includes(w.scope) || !str(w.pages) || (w.asset && !validateAsset(w.asset))) return false;
   const ids = new Set<string>(); const fields = new Set<string>();
   for (const b of d.blocks) {
+    if(b?.style?.vertical!==undefined&&!['top','middle','bottom'].includes(b.style.vertical))return false;
     if (!b || !str(b.id) || ids.has(b.id) || !['text','table','image','field','checkbox','emoji','shape','divider','signature','break','spacer'].includes(b.type) || !finite(b.row, 0, 100000) || !Number.isInteger(b.row) || !finite(b.col, 0, p.columns - 1) || !Number.isInteger(b.col) || !finite(b.span, 1, p.columns - b.col) || !Number.isInteger(b.span) || !str(b.text) || !finite(b.height, 5, 250) || !finite(b.lineWidth, 0.25, 8) || !finite(b.spacing, 0, 20) || !b.style || !str(b.style.font) || !str(b.style.color) || !str(b.style.background) || !finite(b.style.size, 6, 72) || !['left','center','right','justify'].includes(b.style.align)) return false;
     if(b.lineStyle!==undefined&&!['solid','dashed','dotted'].includes(b.lineStyle))return false;
     if(b.signatureLine!==undefined&&(!b.signatureLine||!['none','solid','dashed','dotted'].includes(b.signatureLine.style)||!finite(b.signatureLine.width,.25,8)||!color(b.signatureLine.color)))return false;
@@ -78,7 +79,7 @@ export function readLibrary(): { library: Library; error?: string; storageAvaila
 }
 export function writeLibrary(library: Library) { const raw = JSON.stringify(library);if(desktop){desktop.writeLibrary(raw);return;} localStorage.setItem(KEY, raw); if (localStorage.getItem(KEY) !== raw) throw new Error('저장 결과를 확인하지 못했습니다.'); }
 export function importLibrary(raw: string): Library { if (raw.length > 40 * 1024 * 1024) throw new Error('백업 파일은 40MB 이하만 지원합니다.'); const v = JSON.parse(raw); if (!validateLibrary(v)) throw new Error('버전 또는 데이터 구조가 올바르지 않습니다. 문서 스튜디오 v1 백업을 선택하세요.'); return v; }
-export async function downloadBackup(library: Library) {if(desktop)return desktop.exportBackup(JSON.stringify(library,null,2)); const url = URL.createObjectURL(new Blob([JSON.stringify(library, null, 2)], { type: 'application/json' })); const a = document.createElement('a'); a.href = url; a.download = `문서스튜디오-백업-${new Date().toISOString().slice(0,10)}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }
+export async function downloadBackup(library: Library, filename?:string) {if(desktop)return desktop.exportBackup(JSON.stringify(library,null,2)); const url = URL.createObjectURL(new Blob([JSON.stringify(library, null, 2)], { type: 'application/json' })); const a = document.createElement('a'); a.href = url; a.download = filename ?? `문서스튜디오-백업-${new Date().toISOString().slice(0,10)}.json`; a.click(); setTimeout(() => URL.revokeObjectURL(url), 1000); }
 export async function readImage(file: File, category: Asset['category']): Promise<Asset> {
   if (!['image/png', 'image/jpeg'].includes(file.type)) throw new Error('PNG 또는 JPEG 파일을 선택하세요.');
   if (file.size > 3 * 1024 * 1024) throw new Error('이미지는 3MB 이하를 사용하세요. 브라우저 저장 공간에 제한이 있습니다.');

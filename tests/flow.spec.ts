@@ -1,3 +1,4 @@
+import {resizeSelected} from './editor-actions';
 import {test,expect} from '@playwright/test';
 import type {Page} from '@playwright/test';
 import {newDoc,makeBlock,clone} from '../src/core/model';
@@ -52,13 +53,13 @@ test('이미지 확정과 주변 이동은 한 번의 실행 취소·다시 실�
 test('이미지 높이 축소·문서에서 이미지 제거는 아래 내용을 당기고 보관함은 유지',async({page})=>{
   const {d,b,c}=example();await seed(page,d);await block(page,b.id).click();await page.getByLabel('새 요소 삽입 위치').selectOption('before');const originalY=await top(page,c.id);
   await page.getByRole('button',{name:'이미지',exact:true}).click();await openImagePicker(page);await page.getByTestId('image-upload').setInputFiles({name:'size.png',mimeType:'image/png',buffer:Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4nGMQkdP4zwAEAAdmAVp9gFAdAAAAAElFTkSuQmCC','base64')});await expect(page.locator('.paper .document-image')).toBeVisible();await stored(page);const imageY=await top(page,c.id);expect(imageY).toBeGreaterThan(originalY+40);
-  await page.getByRole('spinbutton',{name:'세로 칸 수'}).fill('1');await stored(page);expect(await top(page,c.id)).toBeLessThan(imageY-30);await page.getByRole('button',{name:'문서에서 이미지 제거',exact:true}).click();await stored(page);await expect(page.locator('.paper .block-image')).toHaveCount(0);expect(await top(page,c.id)).toBe(originalY);expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('document-studio.v1')!).assets.length)).toBe(1);
+  await resizeSelected(page,{rows:1});await stored(page);expect(await top(page,c.id)).toBeLessThan(imageY-30);await page.getByRole('button',{name:'문서에서 이미지 제거',exact:true}).click();await stored(page);await expect(page.locator('.paper .block-image')).toHaveCount(0);expect(await top(page,c.id)).toBe(originalY);expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('document-studio.v1')!).assets.length)).toBe(1);
 });
 
 test('중간 삭제·높이 축소·내용 감소는 자동 상승하고 저장·재열기·이력이 유지됨',async({page})=>{
   const {d,a,b,c}=example();await seed(page,d);const before=await stored(page),y=await top(page,c.id);await block(page,b.id).click();await page.locator('.right-panel .danger-button').click();expect(await top(page,c.id)).toBeLessThan(y-30);const deleted=await stored(page);await page.getByRole('button',{name:'실행 취소',exact:true}).click();expect(await stored(page)).toEqual(before);expect(await top(page,c.id)).toBe(y);await page.getByRole('button',{name:'다시 실행',exact:true}).click();expect(await stored(page)).toEqual(deleted);await page.reload();expect(await stored(page)).toEqual(deleted);
   const editor=block(page,a.id).locator('.text-content');await editor.fill(Array.from({length:15},()=> '긴 문장 내용').join('\n'));await stored(page);const longY=await top(page,c.id);await editor.fill('짧은 문장');await stored(page);expect(await top(page,c.id)).toBeLessThan(longY-100);
-  await block(page,a.id).click();await page.getByRole('spinbutton',{name:'세로 칸 수'}).fill('5');await stored(page);const big=await top(page,c.id);await page.getByRole('spinbutton',{name:'세로 칸 수'}).fill('1');await stored(page);expect(await top(page,c.id)).toBeLessThan(big-80);
+  await block(page,a.id).click();await resizeSelected(page,{rows:5});await stored(page);const big=await top(page,c.id);await resizeSelected(page,{rows:1});await stored(page);expect(await top(page,c.id)).toBeLessThan(big-80);
 });
 
 test('같은 줄 하나 삭제는 나머지 좌우 위치와 최대 높이를 기준으로 흐름 유지',async({page})=>{

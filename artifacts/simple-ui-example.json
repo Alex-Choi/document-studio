@@ -1,0 +1,597 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "version": 1,
+      "id": "855290c0-cce6-4e74-af96-12cdbb09cbcf",
+      "name": "POD 새 양식",
+      "kind": "POD",
+      "blocks": [],
+      "values": {},
+      "updatedAt": "2026-10-19T14:15:13.708Z",
+      "page": {
+        "columns": 12,
+        "margins": {
+          "top": 12,
+          "right": 14,
+          "bottom": 12,
+          "left": 14
+        },
+        "header": {
+          "height": 16,
+          "first": "same",
+          "items": [
+            {
+              "id": "7c18489e-c5a7-49fa-9f40-b0651c307bda",
+              "type": "text",
+              "text": "문서 스튜디오  /  업무 문서",
+              "x": 0,
+              "y": 3,
+              "width": 110,
+              "height": 8,
+              "color": "#46627b",
+              "size": 9
+            }
+          ],
+          "firstItems": []
+        },
+        "footer": {
+          "height": 12,
+          "first": "same",
+          "items": [
+            {
+              "id": "754f4c6f-ed8c-42ca-bbff-e3a4ecd7fe88",
+              "type": "text",
+              "text": "문서 스튜디오",
+              "x": 0,
+              "y": 3,
+              "width": 100,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            },
+            {
+              "id": "4b04bf47-fc46-48d3-b331-43716d10d743",
+              "type": "text",
+              "text": "{page} / {pages}",
+              "x": 145,
+              "y": 3,
+              "width": 32,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            }
+          ],
+          "firstItems": []
+        },
+        "watermark": {
+          "enabled": false,
+          "transparency": 85,
+          "width": 135,
+          "x": 50,
+          "y": 50,
+          "scope": "all",
+          "pages": ""
+        },
+        "widgetGrid": true,
+        "gridRowMm": 12
+      }
+    },
+    {
+      "version": 1,
+      "id": "accfdfed-6bfe-42ed-945a-a5cec1f34f20",
+      "name": "간단해진 문서 스튜디오",
+      "kind": "견적서",
+      "blocks": [
+        {
+          "id": "b9656c20-bc9f-43ac-b15b-27e3b280e508",
+          "type": "text",
+          "row": 0,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 4,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "center",
+            "background": "transparent",
+            "vertical": "middle"
+          },
+          "text": "블록 안에서 가운데 정렬",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "heightMode": "minimum",
+          "freeX": 0
+        },
+        {
+          "id": "88aafdda-83e9-4223-adcb-36d3840aee7e",
+          "type": "table",
+          "row": 4,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73",
+                "name": "항목",
+                "width": 42,
+                "role": "text"
+              },
+              {
+                "id": "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7",
+                "name": "수량",
+                "width": 14,
+                "role": "quantity"
+              },
+              {
+                "id": "db3de51e-608a-4aa5-b106-02b867fa70a1",
+                "name": "단가",
+                "width": 22,
+                "role": "price"
+              },
+              {
+                "id": "f006a0bf-34cf-47eb-af64-d8bbdf948d04",
+                "name": "금액",
+                "width": 22,
+                "role": "amount"
+              }
+            ],
+            "rows": [
+              {
+                "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73": "여러 줄의 셀 내용\n두 번째 줄\n세 번째 줄",
+                "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": "1",
+                "db3de51e-608a-4aa5-b106-02b867fa70a1": "",
+                "f006a0bf-34cf-47eb-af64-d8bbdf948d04": ""
+              },
+              {
+                "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73": "",
+                "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": "",
+                "db3de51e-608a-4aa5-b106-02b867fa70a1": "",
+                "f006a0bf-34cf-47eb-af64-d8bbdf948d04": ""
+              },
+              {
+                "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73": "",
+                "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": "",
+                "db3de51e-608a-4aa5-b106-02b867fa70a1": "",
+                "f006a0bf-34cf-47eb-af64-d8bbdf948d04": ""
+              }
+            ],
+            "total": true,
+            "repeatable": true,
+            "cellStyles": {
+              "0:a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": {
+                "vertical": "middle",
+                "borders": {}
+              }
+            },
+            "richCells": {}
+          },
+          "freeX": 0
+        },
+        {
+          "id": "03a0c12d-b2fa-4a80-a562-d7d4faec7259",
+          "type": "image",
+          "row": 10,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 3,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "asset": {
+            "id": "5b96ea1b-9ae4-4b9b-b036-edda22d06b9c",
+            "name": "투명 이미지",
+            "category": "signature",
+            "width": 2,
+            "height": 1,
+            "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4nGMQkdP4zwAEAAdmAVp9gFAdAAAAAElFTkSuQmCC"
+          },
+          "freeX": 0
+        }
+      ],
+      "values": {},
+      "updatedAt": "2026-10-19T14:15:14.250Z",
+      "page": {
+        "columns": 12,
+        "margins": {
+          "top": 12,
+          "right": 14,
+          "bottom": 12,
+          "left": 14
+        },
+        "header": {
+          "height": 16,
+          "first": "same",
+          "items": [
+            {
+              "id": "b9a11a72-9809-4d5a-b030-cb2539b19ae8",
+              "type": "text",
+              "text": "문서 스튜디오  /  업무 문서",
+              "x": 0,
+              "y": 3,
+              "width": 110,
+              "height": 8,
+              "color": "#46627b",
+              "size": 9
+            }
+          ],
+          "firstItems": []
+        },
+        "footer": {
+          "height": 12,
+          "first": "same",
+          "items": [
+            {
+              "id": "b3bb686c-8a46-437e-81a2-46c5789bbbc5",
+              "type": "text",
+              "text": "문서 스튜디오",
+              "x": 0,
+              "y": 3,
+              "width": 100,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            },
+            {
+              "id": "82ef4428-1b64-4d07-ba44-92992f5cb02f",
+              "type": "text",
+              "text": "{page} / {pages}",
+              "x": 145,
+              "y": 3,
+              "width": 32,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            }
+          ],
+          "firstItems": []
+        },
+        "watermark": {
+          "enabled": false,
+          "transparency": 85,
+          "width": 135,
+          "x": 50,
+          "y": 50,
+          "scope": "all",
+          "pages": ""
+        },
+        "widgetGrid": true,
+        "gridRowMm": 12
+      },
+      "bodyFlow": {
+        "version": 1,
+        "bands": [
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "b9656c20-bc9f-43ac-b15b-27e3b280e508",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "88aafdda-83e9-4223-adcb-36d3840aee7e",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "03a0c12d-b2fa-4a80-a562-d7d4faec7259",
+                "offset": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "documents": [],
+  "assets": [
+    {
+      "id": "5b96ea1b-9ae4-4b9b-b036-edda22d06b9c",
+      "name": "투명 이미지",
+      "category": "signature",
+      "width": 2,
+      "height": 1,
+      "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4nGMQkdP4zwAEAAdmAVp9gFAdAAAAAElFTkSuQmCC"
+    }
+  ],
+  "draft": {
+    "doc": {
+      "version": 1,
+      "id": "accfdfed-6bfe-42ed-945a-a5cec1f34f20",
+      "name": "간단해진 문서 스튜디오",
+      "kind": "견적서",
+      "blocks": [
+        {
+          "id": "b9656c20-bc9f-43ac-b15b-27e3b280e508",
+          "type": "text",
+          "row": 0,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 4,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "center",
+            "background": "transparent",
+            "vertical": "middle"
+          },
+          "text": "블록 안에서 가운데 정렬",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "heightMode": "minimum",
+          "freeX": 0
+        },
+        {
+          "id": "88aafdda-83e9-4223-adcb-36d3840aee7e",
+          "type": "table",
+          "row": 4,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73",
+                "name": "항목",
+                "width": 42,
+                "role": "text"
+              },
+              {
+                "id": "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7",
+                "name": "수량",
+                "width": 14,
+                "role": "quantity"
+              },
+              {
+                "id": "db3de51e-608a-4aa5-b106-02b867fa70a1",
+                "name": "단가",
+                "width": 22,
+                "role": "price"
+              },
+              {
+                "id": "f006a0bf-34cf-47eb-af64-d8bbdf948d04",
+                "name": "금액",
+                "width": 22,
+                "role": "amount"
+              }
+            ],
+            "rows": [
+              {
+                "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73": "여러 줄의 셀 내용\n두 번째 줄\n세 번째 줄",
+                "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": "1",
+                "db3de51e-608a-4aa5-b106-02b867fa70a1": "",
+                "f006a0bf-34cf-47eb-af64-d8bbdf948d04": ""
+              },
+              {
+                "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73": "",
+                "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": "",
+                "db3de51e-608a-4aa5-b106-02b867fa70a1": "",
+                "f006a0bf-34cf-47eb-af64-d8bbdf948d04": ""
+              },
+              {
+                "01aa4ab9-bf03-43d3-9fa9-aed0aaf73e73": "",
+                "a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": "",
+                "db3de51e-608a-4aa5-b106-02b867fa70a1": "",
+                "f006a0bf-34cf-47eb-af64-d8bbdf948d04": ""
+              }
+            ],
+            "total": true,
+            "repeatable": true,
+            "cellStyles": {
+              "0:a26c8bdb-8e1c-43bf-9e76-5340989d6fc7": {
+                "vertical": "middle",
+                "borders": {}
+              }
+            },
+            "richCells": {}
+          },
+          "freeX": 0
+        },
+        {
+          "id": "03a0c12d-b2fa-4a80-a562-d7d4faec7259",
+          "type": "image",
+          "row": 10,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 3,
+          "style": {
+            "font": "Pretendard",
+            "size": 11,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#172d45",
+            "align": "left",
+            "background": "transparent"
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "asset": {
+            "id": "5b96ea1b-9ae4-4b9b-b036-edda22d06b9c",
+            "name": "투명 이미지",
+            "category": "signature",
+            "width": 2,
+            "height": 1,
+            "data": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAABCAYAAAD0In+KAAAAD0lEQVR4nGMQkdP4zwAEAAdmAVp9gFAdAAAAAElFTkSuQmCC"
+          },
+          "freeX": 0
+        }
+      ],
+      "values": {},
+      "updatedAt": "2026-10-19T14:15:14.250Z",
+      "page": {
+        "columns": 12,
+        "margins": {
+          "top": 12,
+          "right": 14,
+          "bottom": 12,
+          "left": 14
+        },
+        "header": {
+          "height": 16,
+          "first": "same",
+          "items": [
+            {
+              "id": "b9a11a72-9809-4d5a-b030-cb2539b19ae8",
+              "type": "text",
+              "text": "문서 스튜디오  /  업무 문서",
+              "x": 0,
+              "y": 3,
+              "width": 110,
+              "height": 8,
+              "color": "#46627b",
+              "size": 9
+            }
+          ],
+          "firstItems": []
+        },
+        "footer": {
+          "height": 12,
+          "first": "same",
+          "items": [
+            {
+              "id": "b3bb686c-8a46-437e-81a2-46c5789bbbc5",
+              "type": "text",
+              "text": "문서 스튜디오",
+              "x": 0,
+              "y": 3,
+              "width": 100,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            },
+            {
+              "id": "82ef4428-1b64-4d07-ba44-92992f5cb02f",
+              "type": "text",
+              "text": "{page} / {pages}",
+              "x": 145,
+              "y": 3,
+              "width": 32,
+              "height": 7,
+              "color": "#718096",
+              "size": 8
+            }
+          ],
+          "firstItems": []
+        },
+        "watermark": {
+          "enabled": false,
+          "transparency": 85,
+          "width": 135,
+          "x": 50,
+          "y": 50,
+          "scope": "all",
+          "pages": ""
+        },
+        "widgetGrid": true,
+        "gridRowMm": 12
+      },
+      "bodyFlow": {
+        "version": 1,
+        "bands": [
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "b9656c20-bc9f-43ac-b15b-27e3b280e508",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "88aafdda-83e9-4223-adcb-36d3840aee7e",
+                "offset": 0
+              }
+            ]
+          },
+          {
+            "gapBefore": 0,
+            "members": [
+              {
+                "id": "03a0c12d-b2fa-4a80-a562-d7d4faec7259",
+                "offset": 0
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "mode": "template"
+  }
+}

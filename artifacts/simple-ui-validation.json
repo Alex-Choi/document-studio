@@ -1,0 +1,14 @@
+{
+  "directFile": false,
+  "directFileError": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/document-studio/artifacts/document-studio-preview.html",
+  "checks": [
+    "Standalone HTML has no coordinate, height mode, line spacing or duplicate file controls",
+    "Vertical center aligns the selected block and selected table cell only, without changing allocated geometry",
+    "One file entry saves current document or full library; current JSON contains its image while full backup additionally preserves unused library assets and other templates",
+    "Same file open restores document, embedded image and vertical alignment without browser storage",
+    "Choosing PDF/Word/Excel/PNG/JPG starts no output; explicit save creates each requested format, and PDF invokes the browser print flow",
+    "Preview and searchable PDF keep alignment and omit edit grid and panels"
+  ],
+  "requests": [],
+  "errors": []
+}

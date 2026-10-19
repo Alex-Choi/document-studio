@@ -3,8 +3,8 @@ export const MM = 96 / 25.4;
 export type Mode = 'template' | 'document';
 export type Kind = '견적서' | 'POD' | 'Agreement';
 export type BlockType = 'text' | 'table' | 'image' | 'field' | 'checkbox' | 'emoji' | 'shape' | 'divider' | 'signature' | 'break' | 'spacer';
-export interface Style { font: string; size: number; bold: boolean; italic: boolean; underline: boolean; color: string; align: 'left' | 'center' | 'right' | 'justify'; background: string; highlight?: string; lineHeight?: number }
-export type InlineStyle = Partial<Omit<Style, 'background'>>;
+export interface Style { font: string; size: number; bold: boolean; italic: boolean; underline: boolean; color: string; align: 'left' | 'center' | 'right' | 'justify'; vertical?: 'top'|'middle'|'bottom'; background: string; highlight?: string; lineHeight?: number }
+export type InlineStyle = Partial<Omit<Style, 'background'|'vertical'>>;
 export interface RichRun { text: string; style?: InlineStyle }
 export interface FontAsset { id: string; family: string; name: string; data: string }
 export interface CellStyle extends Partial<Style> { vertical?: 'top'|'middle'|'bottom'; padding?: number; borders?: Partial<Record<'top'|'right'|'bottom'|'left', { color: string; width: number; type: 'solid'|'dashed'|'dotted'|'none'; revision?: number }>> }

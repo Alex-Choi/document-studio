@@ -8,7 +8,7 @@
     "preview": "vite preview --host 0.0.0.0",
     "test": "playwright test",
     "test:offline": "node tests/offline.mjs",
-    "test:preview": "node tests/preview.mjs",
+    "test:preview": "node tests/simple-ui-preview.mjs",
     "test:enhanced-preview": "node tests/enhanced-preview.mjs",
     "test:flow-preview": "node tests/flow-preview.mjs",
     "test:field-preview": "node tests/field-modes-preview.mjs",
