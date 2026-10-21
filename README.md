@@ -1,5 +1,19 @@
 # 문서 스튜디오
 
+## 머리글·바닥글 이미지: px 크기·비율·투명도 (2026-10-21)
+
+[document-studio-preview.html](artifacts/document-studio-preview.html)을 다운로드해 여세요. **머리글 편집 / 바닥글 편집 → 이미지 선택**에서 아래 설정을 사용합니다.
+
+- **원본에 맞는 삽입:** 고정된 작은 상자로 넣던 동작을 없앴습니다. 원본 픽셀과 비율을 기준으로 삽입하고, 용지 여백 너비와 최대 영역 높이 65mm 안에 맞춥니다. 높이가 부족하면 머리글·바닥글 영역을 함께 확장해 본문과 페이지 수를 다시 계산합니다. 794×110과 740×80을 동일한 181×17mm 상자에 끼워 넣지 않습니다.
+- **px / mm 전환:** ‘크기 단위’에서 선택합니다. 영역 높이와 이미지 X/Y·너비·높이에 적용하며 원본 크기와 현재 표시 크기도 보여 줍니다. px는 문서 100% 기준의 CSS 픽셀로 **96px = 25.4mm**입니다. 확대 배율과 무관하며 단위를 바꾸거나 숫자에 초점만 주었다 떼어도 저장된 치수는 변하지 않습니다. 소수 입력 후 Enter 또는 다른 곳 클릭으로 한 번에 적용하고 Esc는 입력을 취소합니다.
+- **왜 원본보다 작게 표시될 수 있나요:** A4에서 좌우 여백이 각각 14mm이면 가용 너비는 182mm, 약 687.87px입니다. 794×110은 약 687.87×95.30px, 740×80은 약 687.87×74.36px로 비율을 유지해 맞습니다. 더 넓게 쓰려면 페이지 좌우 여백을 줄이세요. 이미지 파일 자체에 든 흰 여백을 자동으로 제거하는 기능은 추가하지 않았습니다.
+- **기존 이미지 수정:** 이미지를 선택하고 **영역 너비에 맞춤**을 누르면 원본 비율로 너비를 채우며 필요한 영역 높이도 확보합니다. ‘원본 크기’도 용지보다 크면 비율을 맞춰 축소합니다. 비율 유지는 기본 켜짐이며, 해제하면 너비·높이를 각각 지정할 수 있습니다. 영역 높이를 직접 줄이면 이미지를 비례 축소합니다. 편집 테두리는 실제 이미지 크기를 줄이지 않습니다.
+- **투명도:** 이미지 설정의 슬라이더를 사용합니다. **0%는 완전히 보임, 100%는 완전히 투명**입니다. 크기·배치·본문 높이에 영향을 주지 않으며 JSON 저장·다시 열기와 웹 미리보기·PDF·이미지 출력에서 유지합니다. 원본 PNG의 투명 픽셀도 보존합니다. Word/Excel은 기존의 편집용 변환으로 이미지 효과·자유 배치의 정확한 재현에는 제한이 있습니다.
+
+기존 양식·문서·이미지는 초기화하지 않습니다. 내부 치수는 mm로 유지하고 선택적 `Decoration.lockAspect`, `Decoration.transparency`만 v1 자료에 추가했습니다. 예전의 원본과 비율이 다른 이미지 상자도 처음 열 때 그대로 보존하며, 사용자가 너비 맞춤 또는 크기를 변경할 때 새 규칙을 적용합니다.
+
+검증: `PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm test -- tests/region-images.spec.ts tests/studio.spec.ts tests/simple-ui.spec.ts --workers=2`, `npm run build`, `PLAYWRIGHT_CHROMIUM_EXECUTABLE=/usr/bin/chromium npm run test:region-preview`. [검증 기록](artifacts/region-images-validation.json), [px 설정 화면](docs/screenshots/region-image-px.png), [투명도 화면](docs/screenshots/region-image-transparency.png), [PDF](artifacts/document-studio-region-images.pdf)를 제공합니다. 클라우드 브라우저의 파일 URL 열기는 정책상 차단돼 동일한 HTML을 오프라인 페이지에 주입해 검사합니다. Windows 더블클릭과 실제 인쇄 대화상자는 직접 확인하지 못했습니다.
+
 ## 간단해진 웹 편집 화면 (2026-10-19)
 
 [document-studio-preview.html](artifacts/document-studio-preview.html)을 다운로드하여 Chrome/Edge에서 여세요. 설치나 서버가 필요 없습니다. 상단 / 왼쪽 도구 / 가운데 문서 / 오른쪽 설정 구조는 유지합니다. 아래 이전 날짜별 항목은 변경 이력이며, 현재 조작 방법은 이 절을 기준으로 합니다.

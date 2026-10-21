@@ -1,0 +1,37 @@
+{
+  "directFile": false,
+  "directFileError": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/document-studio/artifacts/document-studio-preview.html",
+  "checks": [
+    "740×80 and 794×110 source images fill the available 182mm width with their own ratios; region height expands instead of forcing both into 181×17mm",
+    "Pixel editing changes actual dimensions; switching units or focusing rounded fields never changes stored dimensions",
+    "Opacity 0/50/100% and undo work without moving content; JSON retains images, ratio lock, physical size and opacity without browser storage",
+    "Preview preserves size independently of zoom; searchable multi-page PDF repeats both images, keeps opacity, and never overlaps body/header/footer"
+  ],
+  "requests": [],
+  "errors": [],
+  "images": {
+    "header": {
+      "nativePx": [
+        740,
+        80
+      ],
+      "displayPx": [
+        687.8740157480315,
+        74.36475845924664
+      ],
+      "heightMm": 19.675675675675674
+    },
+    "footer": {
+      "nativePx": [
+        794,
+        110
+      ],
+      "displayPx": [
+        687.8740157480315,
+        95.29740772327892
+      ],
+      "heightMm": 25.21410579345088
+    }
+  },
+  "pdfPages": 3
+}

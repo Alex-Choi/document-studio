@@ -19,7 +19,7 @@ export function validateDoc(d: StudioDoc): boolean {
   if (!p || !finite(p.columns, 1, 24) || !Number.isInteger(p.columns) || !p.margins || !['top','right','bottom','left'].every(k => finite(p.margins[k as keyof typeof p.margins], 0, 50)) || Object.keys(p.margins).length !== 4) return false;
   for (const r of [p.header, p.footer]) {
     if (!r || !finite(r.height, 0, 65) || !['same', 'hide', 'different'].includes(r.first) || !Array.isArray(r.items) || !Array.isArray(r.firstItems)) return false;
-    for (const x of [...r.items, ...r.firstItems]) if (!x || !str(x.id) || !['text', 'image', 'shape'].includes(x.type) || !str(x.text) || !str(x.color) || !finite(x.size, 6, 72) || !finite(x.x, 0, 210) || !finite(x.y, 0, 65) || !finite(x.width, 1, 210) || !finite(x.height, 1, 65) || (x.asset && !validateAsset(x.asset))) return false;
+    for (const x of [...r.items, ...r.firstItems]) if (!x || !str(x.id) || !['text', 'image', 'shape'].includes(x.type) || !str(x.text) || !str(x.color) || !finite(x.size, 6, 72) || !finite(x.x, 0, 210) || !finite(x.y, 0, 65) || !finite(x.width, x.type==='image'?Number.MIN_VALUE:1, 210) || !finite(x.height, x.type==='image'?Number.MIN_VALUE:1, 65) || (x.lockAspect!==undefined&&typeof x.lockAspect!=='boolean') || (x.transparency!==undefined&&!finite(x.transparency,0,100)) || (x.asset && !validateAsset(x.asset))) return false;
   }
   const w = p.watermark;
   if (!w || typeof w.enabled !== 'boolean' || !finite(w.transparency, 0, 100) || !finite(w.width, 10, 250) || !finite(w.x, 0, 100) || !finite(w.y, 0, 100) || !['all', 'pages'].includes(w.scope) || !str(w.pages) || (w.asset && !validateAsset(w.asset))) return false;
