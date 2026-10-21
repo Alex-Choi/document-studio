@@ -119,3 +119,9 @@
 @media(max-width:1100px){.header-actions .export-controls>button span{max-width:86px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.header-actions{gap:5px}.file-popover{max-width:calc(100vw - 30px)}}
 .image-size-summary{padding:10px 12px;margin:14px 0 8px;border:1px solid #dce8ec;border-radius:5px;background:#f5f9fa;font-size:11px;line-height:1.7}.image-size-summary strong,.image-size-summary span{display:block}.image-size-summary span{font-size:10px;color:#6b8795}
 .image-transparency>span{display:flex;justify-content:space-between}.image-transparency output{color:#138c8e}.image-transparency input[type=range]{height:22px;padding:0;accent-color:#00a9a3}.image-transparency small{font-size:9px;color:#7e94a1}
+/* Table section titles and compact rows use the same DOM in editor and print. */
+.table-content th.table-section-title{background:#1c3954;color:#fff;text-align:left;font-size:1em;padding:4px 8px;font-weight:700;line-height:1.2;white-space:pre-wrap}
+.table-row-resizer{position:absolute;right:-8px;width:16px;height:5px;min-height:0;padding:0;border:0;border-radius:0;z-index:4;cursor:ns-resize;background:transparent;touch-action:none;opacity:0}
+.table-content:hover .table-row-resizer{opacity:1;background:#00b5aa55}
+.table-row-resizer:hover,.table-row-resizer:focus{background:#00b5aa66}
+.table-structure{border-bottom:1px solid #e6edf2;margin-bottom:12px;padding-bottom:8px}

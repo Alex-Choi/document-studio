@@ -1,3 +1,4 @@
+import {trimTable,resizeTableRows} from './table';
 import type {Block} from './model';
 
 /** Document copies may change wording and presentation, while structural IDs stay stable. */
@@ -17,7 +18,7 @@ export function documentPatch(block:Block,patch:Partial<Block>):Partial<Block>{
  }
  if(block.table&&patch.table){
   const original=block.table,incoming=patch.table;
-  next.table={...original,columns:original.columns.map(c=>({...c,name:incoming.columns.find(n=>n.id===c.id)?.name??c.name})),totalLabel:incoming.totalLabel??original.totalLabel,rows:original.repeatable?incoming.rows:original.rows,richCells:incoming.richCells??original.richCells,cellStyles:incoming.cellStyles??original.cellStyles};
+  next.table=trimTable({...resizeTableRows(original,original.repeatable?incoming.rows:original.rows),title:incoming.title,columns:original.columns.map(c=>({...c,name:incoming.columns.find(n=>n.id===c.id)?.name??c.name})),totalLabel:incoming.totalLabel??original.totalLabel,rows:original.repeatable?incoming.rows:original.rows,richCells:incoming.richCells??original.richCells,cellStyles:incoming.cellStyles??original.cellStyles});
  }
  return next;
 }

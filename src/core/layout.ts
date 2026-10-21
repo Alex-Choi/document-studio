@@ -1,3 +1,4 @@
+import {tableGroupEnd} from './table';
 import { MM } from './model';
 import type { Block, StudioDoc } from './model';
 import { paginateWidgets } from './widgets';
@@ -34,13 +35,13 @@ export function paginate(doc: StudioDoc, measured: Record<string, Metrics>): Lay
     const states = group.map(b => ({ b, cursor: 0, done: false, metric: measured[b.id] ?? { height: 50 } }));
     while (states.some(s => !s.done)) {
       let available = room(); const fragments: Fragment[] = [];
-      const minimum = Math.max(...states.filter(s => !s.done).map(s => s.b.type === 'table' && s.metric.rows ? (s.metric.head ?? 32) + (s.metric.rows[s.cursor] ?? 0) + (s.cursor === s.metric.rows.length - 1 ? s.metric.total ?? 0 : 0) : s.metric.lines?.length ? 16 + s.metric.lines[s.cursor].height : s.metric.height));
+      const minimum = Math.max(...states.filter(s => !s.done).map(s => s.b.type === 'table' && s.metric.rows ? (s.metric.head ?? 32) + s.metric.rows.slice(s.cursor,tableGroupEnd(s.b.table!,s.cursor)).reduce((a,b)=>a+b,0) + (tableGroupEnd(s.b.table!,s.cursor) === s.metric.rows.length ? s.metric.total ?? 0 : 0) : s.metric.lines?.length ? 16 + s.metric.lines[s.cursor].height : s.metric.height));
       if ((available < 40 || minimum > available) && page.rows.length) { next(); available = room(); }
       for (const s of states) {
         if (s.done) continue;
         if (s.b.type === 'table' && s.metric.rows && s.b.table) {
           const head = s.metric.head ?? 32; const rows = s.metric.rows; const from = s.cursor; let h = head; let oversized = false;
-          while (s.cursor < rows.length) { const rh = rows[s.cursor]; const total = s.cursor === rows.length - 1 ? s.metric.total ?? 0 : 0; if (h + rh + total > available && s.cursor > from) break; if (h + rh + total > available) oversized = true; h += rh; s.cursor++; if (oversized) break; }
+          while (s.cursor < rows.length) { const end=tableGroupEnd(s.b.table!,s.cursor); const rh = rows.slice(s.cursor,end).reduce((a,b)=>a+b,0); const total = end === rows.length ? s.metric.total ?? 0 : 0; if (h + rh + total > available && s.cursor > from) break; if (h + rh + total > available) oversized = true; h += rh; s.cursor=end; if (oversized) break; }
           s.done = s.cursor >= rows.length;
           if (s.done) h += s.metric.total ?? 0;
           fragments.push({ block: s.b, from, to: s.cursor, continued: from > 0, last: s.done, height: Math.min(h, available), oversized });

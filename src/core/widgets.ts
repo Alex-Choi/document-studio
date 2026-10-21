@@ -1,3 +1,4 @@
+import {tableGroupEnd} from './table';
 import { MM } from './model';
 import type { Block, StudioDoc, FlowBand } from './model';
 import type { Fragment, LayoutPage, Metrics } from './layout';
@@ -174,7 +175,7 @@ export function paginateWidgets(doc: StudioDoc, metrics: Record<string, Metrics>
       let available=aligned(room());
       const needed=Math.max(...states.filter(s=>!s.done).map(s=>{
         const offset=s.cursor===0?(s.rect.row-band.start)*pitch:0;
-        if(s.rect.block.type==='table' && s.metric.rows) return offset+(s.metric.head??32)+(s.metric.rows[s.cursor]??0)+(s.cursor===s.metric.rows.length-1?(s.metric.total??0):0);
+        if(s.rect.block.type==='table' && s.metric.rows) return offset+(s.metric.head??32)+s.metric.rows.slice(s.cursor,tableGroupEnd(s.rect.block.table!,s.cursor)).reduce((a,b)=>a+b,0)+(tableGroupEnd(s.rect.block.table!,s.cursor)===s.metric.rows.length?(s.metric.total??0):0);
         if(s.metric.lines?.length) return offset+14+s.metric.lines[s.cursor].height;
         return offset+s.rect.height;
       }));
@@ -188,7 +189,7 @@ export function paginateWidgets(doc: StudioDoc, metrics: Record<string, Metrics>
         offset=Math.min(offset,Math.max(0,rowsFor(available)-1)*pitch);let fragment:Fragment;
         if(b.type==='table' && b.table && metric.rows) {
           const from=state.cursor;let height=offset+(metric.head??32);let oversized=false;
-          while(state.cursor<metric.rows.length) {const rowHeight=metric.rows[state.cursor];const total=state.cursor===metric.rows.length-1?(metric.total??0):0;if(height+rowHeight+total>available && state.cursor>from)break;if(height+rowHeight+total>available)oversized=true;height+=rowHeight;state.cursor++;if(oversized)break;}
+          while(state.cursor<metric.rows.length) {const end=tableGroupEnd(b.table,state.cursor);const rowHeight=metric.rows.slice(state.cursor,end).reduce((a,b)=>a+b,0);const total=end===metric.rows.length?(metric.total??0):0;if(height+rowHeight+total>available && state.cursor>from)break;if(height+rowHeight+total>available)oversized=true;height+=rowHeight;state.cursor=end;if(oversized)break;}
           state.done=state.cursor>=metric.rows.length;if(state.done)height+=metric.total??0;
           fragment={block:b,from,to:state.cursor,last:state.done,continued:from>0,oversized,height:Math.min(available-offset,rowsFor(height)*pitch-gap-offset)};
         } else if((b.type==='text'||b.type==='emoji') && metric.lines?.length) {

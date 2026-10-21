@@ -1,0 +1,12 @@
+{
+  "directFile": false,
+  "directFileError": "page.goto: net::ERR_BLOCKED_BY_ADMINISTRATOR at file:///workspace/document-studio/artifacts/document-studio-preview.html",
+  "checks": [
+    "Offline standalone HTML: editable POD preset, merged cell partial bold, JSON save/open without browser storage; original cell contents and styles retained",
+    "Searchable one-page PDF preserves merged table contents, dark title rows, compact cargo rows and side-by-side signature tables; editing controls are hidden",
+    "Vertical merge remains whole across automatic page breaks; 65 source rows render once each; title and column headings repeat per page in PDF"
+  ],
+  "requests": [],
+  "errors": [],
+  "multiPageCount": 2
+}

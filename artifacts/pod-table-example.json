@@ -1,0 +1,1436 @@
+{
+  "version": 1,
+  "templates": [
+    {
+      "version": 1,
+      "id": "fe1e69bd-a969-47c8-9811-5ba36fe59568",
+      "name": "POD · 인도 확인서",
+      "kind": "POD",
+      "blocks": [
+        {
+          "id": "78cce2af-fe8f-4247-bfb4-34147ace3536",
+          "type": "text",
+          "row": 0,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 25,
+            "bold": true,
+            "italic": false,
+            "underline": false,
+            "color": "#102b45",
+            "align": "center",
+            "background": "transparent",
+            "lineHeight": 1.1
+          },
+          "text": "PROOF OF DELIVERY (POD)\nReceipt Confirmation and Related Documents",
+          "keepWithNext": true,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "rich": [
+            {
+              "text": "PROOF OF DELIVERY (POD)\n",
+              "style": {
+                "size": 25,
+                "bold": true
+              }
+            },
+            {
+              "text": "Receipt Confirmation and Related Documents",
+              "style": {
+                "size": 13,
+                "bold": true
+              }
+            }
+          ]
+        },
+        {
+          "id": "9ccbf76e-b62d-481c-891d-9f18483ceeb9",
+          "type": "table",
+          "row": 1,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "45f01577-be71-4dc9-9933-24c3cb1218dc",
+                "name": "",
+                "width": 21,
+                "role": "text"
+              },
+              {
+                "id": "db45403d-1c6f-42fe-9c2f-8dea1fd310a3",
+                "name": "",
+                "width": 31.5,
+                "role": "text"
+              },
+              {
+                "id": "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275",
+                "name": "",
+                "width": 17.5,
+                "role": "text"
+              },
+              {
+                "id": "39a34a3a-15e4-448e-8eef-ed24ef274382",
+                "name": "",
+                "width": 30,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "POD No.",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "Date",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ":  ______________________"
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Time",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "Delivery Note No.",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ":  ______________________"
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Shipment Reference No.\n(Invoice / PI / PO / SO)",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": "Shipment reference ABC-123",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Shipper",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Consignee",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Delivered By",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Received By",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "1.  GENERAL INFORMATION",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [
+              {
+                "row": 2,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 3,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 4,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 5,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 6,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              }
+            ],
+            "cellStyles": {
+              "0:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "0:cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "2:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "3:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "4:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "5:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "6:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              }
+            },
+            "richCells": {
+              "2:db45403d-1c6f-42fe-9c2f-8dea1fd310a3": [
+                {
+                  "text": "Shipment reference "
+                },
+                {
+                  "text": "ABC-123",
+                  "style": {
+                    "bold": true
+                  }
+                }
+              ]
+            }
+          },
+          "heightMode": "auto"
+        },
+        {
+          "id": "8701349d-ff0e-4e24-a49a-857d9387735f",
+          "type": "table",
+          "row": 2,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "442639a2-2feb-408a-986d-19b2928bb5d4",
+                "name": "No.",
+                "width": 7,
+                "role": "text"
+              },
+              {
+                "id": "5db73e78-b64b-467e-88cf-b22de9071d03",
+                "name": "Cargo Description",
+                "width": 25.5,
+                "role": "text"
+              },
+              {
+                "id": "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0",
+                "name": "Quantity",
+                "width": 14,
+                "role": "text"
+              },
+              {
+                "id": "074a39e4-2f5c-4858-a69e-c33927d1dd98",
+                "name": "Package Type",
+                "width": 16.5,
+                "role": "text"
+              },
+              {
+                "id": "cc284251-ec70-49ff-9744-98e05af46d06",
+                "name": "Condition on Receipt",
+                "width": 21,
+                "role": "text"
+              },
+              {
+                "id": "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d",
+                "name": "Remarks",
+                "width": 16,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "1",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "2",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "3",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "4",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "5",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "2.  CARGO DETAILS",
+            "showHeader": true,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {},
+            "rowHeights": {
+              "0": 24,
+              "1": 24,
+              "2": 24,
+              "3": 24,
+              "4": 24
+            }
+          }
+        },
+        {
+          "id": "f89c2350-02f4-4b0e-8f8b-c6fa7981c84d",
+          "type": "table",
+          "row": 3,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "3175200e-732d-458a-8194-65ddbb3eb016",
+                "name": "",
+                "width": 100,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "3175200e-732d-458a-8194-65ddbb3eb016": "•  Please check the following items when receiving cargo.\n•  Prepare receipt / handover documents such as a Delivery Note or Cargo In-Out Receipt.\n•  Confirm the signatures and company stamps of both the delivering party and the receiving party.\n•  Ensure that the document includes the following information:\n    ○  Date and time     ○  Cargo quantity     ○  Cargo details\n    ○  Shipment reference numbers such as Invoice / PI / PO / SO\n•  If there are any discrepancies such as shortage, damage, or misdelivery, clearly note them at the time of receipt."
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "3.  INSTRUCTIONS AT TIME OF CARGO RECEIPT",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {}
+          }
+        },
+        {
+          "id": "1bfb4573-2080-4ea2-9594-bbb30b5cfdb7",
+          "type": "table",
+          "row": 4,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc",
+                "name": "",
+                "width": 100,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc": "________________________________________________________________________________________"
+              },
+              {
+                "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc": "________________________________________________________________________________________"
+              },
+              {
+                "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc": "________________________________________________________________________________________"
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "4.  DISCREPANCIES / EXCEPTIONS NOTED AT RECEIPT",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {}
+          }
+        },
+        {
+          "id": "a2b78871-64fb-4ed6-8b62-50c10bbf45ec",
+          "type": "text",
+          "row": 5,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": true,
+            "italic": false,
+            "underline": false,
+            "color": "#ffffff",
+            "align": "left",
+            "background": "#1c3954",
+            "lineHeight": 1.15
+          },
+          "text": "5.  SIGNATURES",
+          "keepWithNext": true,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true
+        },
+        {
+          "id": "d29731ba-3661-439e-b528-26d2768759b4",
+          "type": "table",
+          "row": 6,
+          "col": 0,
+          "span": 6,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "37bdb5b8-4429-4134-9ff1-4015eea94401",
+                "name": "",
+                "width": 30,
+                "role": "text"
+              },
+              {
+                "id": "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19",
+                "name": "",
+                "width": 70,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Name",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":  ___________________________"
+              },
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Signature",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":  ___________________________"
+              },
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Company Stamp",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":"
+              },
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Date",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":  ___________________________"
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "Delivered By",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {
+              "0:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "2:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "3:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              }
+            },
+            "titleStyle": {
+              "background": "#e5ebf0",
+              "color": "#172d45"
+            },
+            "rowHeights": {
+              "2": 56
+            }
+          }
+        },
+        {
+          "id": "b6b94ea2-45cb-44a5-827a-c7bd6942b1b9",
+          "type": "table",
+          "row": 6,
+          "col": 6,
+          "span": 6,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0",
+                "name": "",
+                "width": 30,
+                "role": "text"
+              },
+              {
+                "id": "79bbea95-0b0b-445d-91bf-8682bb914052",
+                "name": "",
+                "width": 70,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Name",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":  ___________________________"
+              },
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Signature",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":  ___________________________"
+              },
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Company Stamp",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":"
+              },
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Date",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":  ___________________________"
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "Received By",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {
+              "0:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "2:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "3:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              }
+            },
+            "titleStyle": {
+              "background": "#e5ebf0",
+              "color": "#172d45"
+            },
+            "rowHeights": {
+              "2": 56
+            }
+          }
+        }
+      ],
+      "values": {},
+      "updatedAt": "2026-10-21T05:25:49.735Z",
+      "page": {
+        "columns": 12,
+        "margins": {
+          "top": 8,
+          "bottom": 8,
+          "left": 9,
+          "right": 9
+        },
+        "header": {
+          "height": 0,
+          "first": "same",
+          "items": [],
+          "firstItems": []
+        },
+        "footer": {
+          "height": 5,
+          "first": "same",
+          "items": [
+            {
+              "id": "2e6d3e80-1704-436b-b4f6-182734a0fd52",
+              "type": "text",
+              "text": "This document serves as proof of cargo handover and receipt.  ·  {page} / {pages}",
+              "x": 0,
+              "y": 0,
+              "width": 192,
+              "height": 5,
+              "color": "#25394b",
+              "size": 8
+            }
+          ],
+          "firstItems": []
+        },
+        "watermark": {
+          "enabled": false,
+          "transparency": 85,
+          "width": 135,
+          "x": 50,
+          "y": 50,
+          "scope": "all",
+          "pages": ""
+        },
+        "widgetGrid": false,
+        "gridRowMm": 12
+      }
+    }
+  ],
+  "documents": [],
+  "assets": [],
+  "draft": {
+    "doc": {
+      "version": 1,
+      "id": "fe1e69bd-a969-47c8-9811-5ba36fe59568",
+      "name": "POD · 인도 확인서",
+      "kind": "POD",
+      "blocks": [
+        {
+          "id": "78cce2af-fe8f-4247-bfb4-34147ace3536",
+          "type": "text",
+          "row": 0,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 25,
+            "bold": true,
+            "italic": false,
+            "underline": false,
+            "color": "#102b45",
+            "align": "center",
+            "background": "transparent",
+            "lineHeight": 1.1
+          },
+          "text": "PROOF OF DELIVERY (POD)\nReceipt Confirmation and Related Documents",
+          "keepWithNext": true,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "rich": [
+            {
+              "text": "PROOF OF DELIVERY (POD)\n",
+              "style": {
+                "size": 25,
+                "bold": true
+              }
+            },
+            {
+              "text": "Receipt Confirmation and Related Documents",
+              "style": {
+                "size": 13,
+                "bold": true
+              }
+            }
+          ]
+        },
+        {
+          "id": "9ccbf76e-b62d-481c-891d-9f18483ceeb9",
+          "type": "table",
+          "row": 1,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "45f01577-be71-4dc9-9933-24c3cb1218dc",
+                "name": "",
+                "width": 21,
+                "role": "text"
+              },
+              {
+                "id": "db45403d-1c6f-42fe-9c2f-8dea1fd310a3",
+                "name": "",
+                "width": 31.5,
+                "role": "text"
+              },
+              {
+                "id": "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275",
+                "name": "",
+                "width": 17.5,
+                "role": "text"
+              },
+              {
+                "id": "39a34a3a-15e4-448e-8eef-ed24ef274382",
+                "name": "",
+                "width": 30,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "POD No.",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "Date",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ":  ______________________"
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Time",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "Delivery Note No.",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ":  ______________________"
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Shipment Reference No.\n(Invoice / PI / PO / SO)",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": "Shipment reference ABC-123",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Shipper",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Consignee",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Delivered By",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              },
+              {
+                "45f01577-be71-4dc9-9933-24c3cb1218dc": "Received By",
+                "db45403d-1c6f-42fe-9c2f-8dea1fd310a3": ":  ______________________________________________________________________________",
+                "cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": "",
+                "39a34a3a-15e4-448e-8eef-ed24ef274382": ""
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "1.  GENERAL INFORMATION",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [
+              {
+                "row": 2,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 3,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 4,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 5,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              },
+              {
+                "row": 6,
+                "col": 1,
+                "rowSpan": 1,
+                "colSpan": 3
+              }
+            ],
+            "cellStyles": {
+              "0:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "0:cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:cdc4ea10-8c78-4fd9-8611-db1bdbd1d275": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "2:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "3:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "4:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "5:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "6:45f01577-be71-4dc9-9933-24c3cb1218dc": {
+                "background": "#e5ebf0",
+                "bold": true
+              }
+            },
+            "richCells": {
+              "2:db45403d-1c6f-42fe-9c2f-8dea1fd310a3": [
+                {
+                  "text": "Shipment reference "
+                },
+                {
+                  "text": "ABC-123",
+                  "style": {
+                    "bold": true
+                  }
+                }
+              ]
+            }
+          },
+          "heightMode": "auto"
+        },
+        {
+          "id": "8701349d-ff0e-4e24-a49a-857d9387735f",
+          "type": "table",
+          "row": 2,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "442639a2-2feb-408a-986d-19b2928bb5d4",
+                "name": "No.",
+                "width": 7,
+                "role": "text"
+              },
+              {
+                "id": "5db73e78-b64b-467e-88cf-b22de9071d03",
+                "name": "Cargo Description",
+                "width": 25.5,
+                "role": "text"
+              },
+              {
+                "id": "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0",
+                "name": "Quantity",
+                "width": 14,
+                "role": "text"
+              },
+              {
+                "id": "074a39e4-2f5c-4858-a69e-c33927d1dd98",
+                "name": "Package Type",
+                "width": 16.5,
+                "role": "text"
+              },
+              {
+                "id": "cc284251-ec70-49ff-9744-98e05af46d06",
+                "name": "Condition on Receipt",
+                "width": 21,
+                "role": "text"
+              },
+              {
+                "id": "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d",
+                "name": "Remarks",
+                "width": 16,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "1",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "2",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "3",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "4",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              },
+              {
+                "442639a2-2feb-408a-986d-19b2928bb5d4": "5",
+                "5db73e78-b64b-467e-88cf-b22de9071d03": "",
+                "60ce1a35-07ff-46d5-92a3-1e2c203a3ce0": "",
+                "074a39e4-2f5c-4858-a69e-c33927d1dd98": "",
+                "cc284251-ec70-49ff-9744-98e05af46d06": "",
+                "ad7ac98e-d9c3-4cec-93dc-3e6bbe0cc24d": ""
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "2.  CARGO DETAILS",
+            "showHeader": true,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {},
+            "rowHeights": {
+              "0": 24,
+              "1": 24,
+              "2": 24,
+              "3": 24,
+              "4": 24
+            }
+          }
+        },
+        {
+          "id": "f89c2350-02f4-4b0e-8f8b-c6fa7981c84d",
+          "type": "table",
+          "row": 3,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "3175200e-732d-458a-8194-65ddbb3eb016",
+                "name": "",
+                "width": 100,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "3175200e-732d-458a-8194-65ddbb3eb016": "•  Please check the following items when receiving cargo.\n•  Prepare receipt / handover documents such as a Delivery Note or Cargo In-Out Receipt.\n•  Confirm the signatures and company stamps of both the delivering party and the receiving party.\n•  Ensure that the document includes the following information:\n    ○  Date and time     ○  Cargo quantity     ○  Cargo details\n    ○  Shipment reference numbers such as Invoice / PI / PO / SO\n•  If there are any discrepancies such as shortage, damage, or misdelivery, clearly note them at the time of receipt."
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "3.  INSTRUCTIONS AT TIME OF CARGO RECEIPT",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {}
+          }
+        },
+        {
+          "id": "1bfb4573-2080-4ea2-9594-bbb30b5cfdb7",
+          "type": "table",
+          "row": 4,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc",
+                "name": "",
+                "width": 100,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc": "________________________________________________________________________________________"
+              },
+              {
+                "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc": "________________________________________________________________________________________"
+              },
+              {
+                "c2e3e5ab-8d27-45b9-9bd8-d2e327cf9edc": "________________________________________________________________________________________"
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "4.  DISCREPANCIES / EXCEPTIONS NOTED AT RECEIPT",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {}
+          }
+        },
+        {
+          "id": "a2b78871-64fb-4ed6-8b62-50c10bbf45ec",
+          "type": "text",
+          "row": 5,
+          "col": 0,
+          "span": 12,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": true,
+            "italic": false,
+            "underline": false,
+            "color": "#ffffff",
+            "align": "left",
+            "background": "#1c3954",
+            "lineHeight": 1.15
+          },
+          "text": "5.  SIGNATURES",
+          "keepWithNext": true,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true
+        },
+        {
+          "id": "d29731ba-3661-439e-b528-26d2768759b4",
+          "type": "table",
+          "row": 6,
+          "col": 0,
+          "span": 6,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "37bdb5b8-4429-4134-9ff1-4015eea94401",
+                "name": "",
+                "width": 30,
+                "role": "text"
+              },
+              {
+                "id": "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19",
+                "name": "",
+                "width": 70,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Name",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":  ___________________________"
+              },
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Signature",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":  ___________________________"
+              },
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Company Stamp",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":"
+              },
+              {
+                "37bdb5b8-4429-4134-9ff1-4015eea94401": "Date",
+                "f04be3c0-e4d5-4f49-962d-c17b4ffe6e19": ":  ___________________________"
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "Delivered By",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {
+              "0:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "2:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "3:37bdb5b8-4429-4134-9ff1-4015eea94401": {
+                "background": "#e5ebf0",
+                "bold": true
+              }
+            },
+            "titleStyle": {
+              "background": "#e5ebf0",
+              "color": "#172d45"
+            },
+            "rowHeights": {
+              "2": 56
+            }
+          }
+        },
+        {
+          "id": "b6b94ea2-45cb-44a5-827a-c7bd6942b1b9",
+          "type": "table",
+          "row": 6,
+          "col": 6,
+          "span": 6,
+          "rowSpan": 1,
+          "style": {
+            "font": "Times New Roman",
+            "size": 10,
+            "bold": false,
+            "italic": false,
+            "underline": false,
+            "color": "#111827",
+            "align": "left",
+            "background": "transparent",
+            "lineHeight": 1.15
+          },
+          "text": "",
+          "keepWithNext": false,
+          "height": 28,
+          "lineWidth": 1,
+          "spacing": 3,
+          "contain": true,
+          "table": {
+            "columns": [
+              {
+                "id": "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0",
+                "name": "",
+                "width": 30,
+                "role": "text"
+              },
+              {
+                "id": "79bbea95-0b0b-445d-91bf-8682bb914052",
+                "name": "",
+                "width": 70,
+                "role": "text"
+              }
+            ],
+            "rows": [
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Name",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":  ___________________________"
+              },
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Signature",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":  ___________________________"
+              },
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Company Stamp",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":"
+              },
+              {
+                "1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": "Date",
+                "79bbea95-0b0b-445d-91bf-8682bb914052": ":  ___________________________"
+              }
+            ],
+            "total": false,
+            "repeatable": true,
+            "title": "Received By",
+            "showHeader": false,
+            "padding": 3,
+            "lineHeight": 1.15,
+            "merges": [],
+            "cellStyles": {
+              "0:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "1:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "2:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              },
+              "3:1e0fc221-e8e2-4373-84b8-9ecfc9ab4cb0": {
+                "background": "#e5ebf0",
+                "bold": true
+              }
+            },
+            "titleStyle": {
+              "background": "#e5ebf0",
+              "color": "#172d45"
+            },
+            "rowHeights": {
+              "2": 56
+            }
+          }
+        }
+      ],
+      "values": {},
+      "updatedAt": "2026-10-21T05:25:49.735Z",
+      "page": {
+        "columns": 12,
+        "margins": {
+          "top": 8,
+          "bottom": 8,
+          "left": 9,
+          "right": 9
+        },
+        "header": {
+          "height": 0,
+          "first": "same",
+          "items": [],
+          "firstItems": []
+        },
+        "footer": {
+          "height": 5,
+          "first": "same",
+          "items": [
+            {
+              "id": "2e6d3e80-1704-436b-b4f6-182734a0fd52",
+              "type": "text",
+              "text": "This document serves as proof of cargo handover and receipt.  ·  {page} / {pages}",
+              "x": 0,
+              "y": 0,
+              "width": 192,
+              "height": 5,
+              "color": "#25394b",
+              "size": 8
+            }
+          ],
+          "firstItems": []
+        },
+        "watermark": {
+          "enabled": false,
+          "transparency": 85,
+          "width": 135,
+          "x": 50,
+          "y": 50,
+          "scope": "all",
+          "pages": ""
+        },
+        "widgetGrid": false,
+        "gridRowMm": 12
+      }
+    },
+    "mode": "template"
+  }
+}

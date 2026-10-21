@@ -1,3 +1,4 @@
+import {expandMergedSelection} from './table';
 import type { CellStyle, TableData, InlineStyle } from './model';
 import { cellValue, tableTotal } from './model';
 import { fontFamily } from './rich';
@@ -19,8 +20,8 @@ export function cellCSS(style:CellStyle):Record<string,string|number|undefined>{
 export function normalizeCellSelection(table:TableData,s:CellSelection):CellSelection{
  const total=table.rows.length,last=table.total?total:total-1;
  const c1=Math.max(0,Math.min(table.columns.length-1,s.c1)),c2=Math.max(c1,Math.min(table.columns.length-1,s.c2));
- if(s.kind==='table'||s.kind==='column')return {...s,r1:-1,r2:last,c1:s.kind==='table'?0:c1,c2:s.kind==='table'?table.columns.length-1:c2};
- const r1=s.zone==='total'?last:Math.max(-1,Math.min(s.zone==='body'?total-1:last,s.r1));return {...s,r1,r2:s.kind==='row'?r1:Math.max(r1,Math.min(last,s.r2)),c1,c2};
+ if(s.kind==='table'||s.kind==='column')return expandMergedSelection(table,{...s,r1:table.showHeader===false?0:-1,r2:last,c1:s.kind==='table'?0:c1,c2:s.kind==='table'?table.columns.length-1:c2});
+ const r1=s.zone==='total'?last:Math.max(-1,Math.min(s.zone==='body'?total-1:last,s.r1));return expandMergedSelection(table,{...s,r1,r2:s.kind==='row'?r1:Math.max(r1,Math.min(last,s.r2)),c1,c2});
 }
 export function clearCellTypography(table:TableData,s:CellSelection):TableData{
  const revision=Object.values(table.cellStyles??{}).reduce((max,s)=>Object.values(s.borders??{}).reduce((m,b)=>Math.max(m,b?.revision??0),max),0)+1;
@@ -38,4 +39,10 @@ export function paintedCellStyle(table:TableData,row:number,col:number,from=0,to
  const neighbors={top:previous===undefined?undefined:get(previous,col).borders?.bottom,bottom:next===undefined?undefined:get(next,col).borders?.top,left:get(row,col-1).borders?.right,right:get(row,col+1).borders?.left};
  for(const side of ['top','right','bottom','left'] as const){const edge=neighbors[side];if(edge&&(!borders[side]||(edge.revision??0)>(borders[side]?.revision??0)))borders[side]=edge;}
  return {...own,borders};
+}
+
+/** A merged cell paints its outside edges, using the covered perimeter records. */
+export function mergedCellStyle(table:TableData,row:number,col:number,from=0,to=table.rows.length,last=true):CellStyle {
+ const merge=table.merges?.find(m=>m.row===row&&m.col===col),own=paintedCellStyle(table,row,col,from,to,last);if(!merge)return own;
+ return {...own,borders:{...own.borders,right:paintedCellStyle(table,row,col+merge.colSpan-1,from,to,last).borders?.right,bottom:paintedCellStyle(table,row+merge.rowSpan-1,col,from,to,last).borders?.bottom}};
 }
